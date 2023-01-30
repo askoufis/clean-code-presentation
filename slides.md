@@ -60,7 +60,7 @@ implies the existence of dirty code". And, at least according to the book, dirty
 
 - Experimentation
 - Time pressure
-- The <em>Need for Speed</em> ™️
+- The _Need for Speed_ ™️
 - Unfamiliarity with codebase/language
 - Neglect
 
@@ -102,16 +102,16 @@ not only for your future self, but for both existing and future team members, so
 never meet. The overall goal of writing clean code is to improve the readability, understanding and
 maintainability of software.
 
-Clean code also isn't just a one time thing. It's a continuous practice th
+Clean code also isn't just a one time thing. It's a continuous practice that 
 -->
 
 ---
 layout: quote
 ---
 
-# "Always leave the <s>campground</s> code cleaner than you found it."
+# "Always leave the ~~campground~~ code cleaner than you found it."
 
-— <em>A scout that grew up to be a software developer, probably</em>
+— _A scout that grew up to be a software developer, probably_
 
 <!--
 TODO
@@ -149,7 +149,7 @@ layout: quote
 
 # "There are only two hard things in computer science: cache invalidation and naming things."
 
-— <em>Phil Karlton</em>
+— _Phil Karlton_
 
 <!--
 TODO
@@ -242,17 +242,45 @@ TODO
 layout: section
 ---
 
-# Composition
+# Functions
+
+---
+
+# Functions
+
+<v-clicks>
+
+- TODO
+
+</v-clicks>
 
 <!--
 TODO
 -->
 
 ---
-layout: section
+
+# Function Arguments
+
+<v-clicks>
+
+- TODO
+
+</v-clicks>
+
+<!--
+TODO
+-->
+
 ---
 
-# Arguments
+# Control Flow
+
+<v-clicks>
+
+- TODO
+
+</v-clicks>
 
 <!--
 TODO
@@ -264,16 +292,58 @@ layout: section
 
 # Comments
 
+---
+
+# Comments
+
+<v-clicks>
+
+- Ideally none
+- Explain with code rather than comments (naming)
+- Sometimes necessary
+- To TODO, or not to TODO
+
+</v-clicks>
+
 <!--
-TODO
+For example, if you had to write some code in order to work around a bug in a library you're consuming,
+then leaving a comment that links to the issue for that specific bug is useful. It lets other devs know
+why you did this, and also makes it easy to check if the bug is fixed the next time someone touches the code.
+
+TODOs are a bit contentious, but I think they're fine. They're a signal for future developers that there's a
+potential change to be done, but for whatever reason it wasn't done
 -->
 
 ---
 layout: section
+---
+
+# Structure
+
 ---
 
 # File and Line Length
 
+<v-clicks>
+
+- Line length limits are a thing of the past
+- Code formatters help ensure lines don't get too long
+- The contents of a file should be related to the name of the file
+- Large files can indicate 
+
+</v-clicks>
+
+<!--
+TODO
+-->
+
+---
+
+# Whitespace
+
+<v-clicks>
+</v-clicks>
+
 <!--
 TODO
 -->
@@ -282,7 +352,20 @@ TODO
 layout: section
 ---
 
-# Whitespace
+# Tools
+
+---
+
+# Formatting
+
+<v-clicks>
+
+- Enforce consistent style
+- Consistency trumps personal preference
+
+</v-clicks>
+
+TODO: Comparison between unformatted and code formatted with prettier
 
 <!--
 TODO
@@ -290,18 +373,57 @@ TODO
 
 ---
 
-# Tools
+# Linting
+
+<v-clicks>
+
+- Enforce certain patterns
+- Find code smells
+- Prevent footguns
+- Can automatically fix some issues
+
+</v-clicks>
+
+TODO: Image of an eslint warning and error
 
 <!--
 TODO
 -->
 
+---
+layout: section
 ---
 
 # Miscellaneous
 
+---
+
+# Acronyms
+
+<v-clicks>
+
+- KISS (Keep It Simple, Silly)
+- DRY (Don't Repeat Yourself)
+- WET (Write Everything Twice)
+- AHA (Avoid Hasty Abstractions)
+
+</v-clicks>
+
 <!--
-TODO
+When writing code, there are a few acronyms that be useful to keep in mind.
+
+KISS is a common one you might've heard of. It stands for "Keep it simple, silly", or some variation of that.
+It's intended to be a reminder to value simple code over, for example, overly concise code,
+or code that uses an obscure language feature. While it can be tempting to try and make your code as concise or as clever
+as possible, in reality this tends to make it harder for any person who has to read the code in the future, including you.
+
+DRY is another common one you might've heard of. It stands for "Don't repeat yourself". 
+
+WET
+
+optimize for change
+
+AHA
 -->
 
 ---
