@@ -1,5 +1,4 @@
 ---
-# global frontmatter
 theme: default
 highlighter: shiki
 # persist drawings in exports and build
@@ -49,12 +48,6 @@ implies the existence of dirty code". And, at least according to the book, dirty
 - Hard to maintain
 
 </v-clicks>
-
-<v-click>
-
-## Causes
-
-</v-click>
 
 <v-clicks>
 
@@ -125,19 +118,10 @@ TODO
 
 - Guidelines, not rules
 - Opinions and personal preference
+- Language-dependent
 - Consistency is key
 
 </v-clicks>
-
-<!--
-TODO
--->
-
---- 
-layout: section
---- 
-
-# Naming
 
 <!--
 TODO
@@ -156,54 +140,52 @@ TODO
 -->
 
 ---
-layout: two-cols-header
----
 
-# Avoid Abbreviations
-
-::left::
+# Naming
 
 <v-clicks>
 
+- Pronounceable
+- Meaningful
 - We live in [current year], not the 70s, no need to save space
-- Enhances pronounceability and readability
 - Leverage your IDE's autocomplete
 
 </v-clicks>
 
-::right::
+<a v-click class="w-75% h-80% mx-auto block" href="https://craftofcoding.wordpress.com/2017/01/28/read-your-own-punch-cards/">
 
-<div class="grid grid-rows-2">
-<v-clicks>
+![An image of a used punchcard](/punchcard.jpg)
 
-```ts
-type Addr {
+</a>
+
+---
+layout: center-code
+size: 4
+---
+
+```ts {1-10|12-21|all}
+type Addr = {
   num: number;
   name: string;
-}
+};
 
 const addrStr = '123 Test St'; // User input
 
-function prsAddr(a: string): Addr {};
+function prsAddr(a: string): Addr {}
 
-let addr = prsAddr(addrStr);
-```
+const addr = prsAddr(addrStr);
 
-```ts
-type Address {
+type Address = {
   streetNumber: number;
   streetName: string;
-}
+};
 
-const addressString = '123 Test St'; // User input
+const userAddressInput = '123 Test St'; // User input
 
-function parseAddress(inputAddress: string): Address {};
+function parseAddressFromInput(input: string): Address {}
 
-let address = parseAddress(addressString);
+const parsedAddress = parseAddressFromInput(addressString);
 ```
-
-</v-clicks>
-</div>
 
 <!--
 We're not in the 70s and 80s anymore, you can afford to use more descriptive, longer names for
@@ -211,38 +193,28 @@ things as we're not constrained by the size of a punchcard or anything
 -->
 
 ---
+layout: center-code
+---
 
 # Use Names to Add Meaning
 
-<v-clicks>
+```ts {1-3|5-11}
+if (age >= 4 && age <= 18) {
+  applyTaxBenefit();
+}
 
-- Descriptive
+function isOfSchoolAge(age: number): boolean {
+  return (age >= 4 && age <= 18);
+}
 
-</v-clicks>
-
-<style>
-  .code {
-    width: 50%
-  }
-</style>
-
-<div class="code">
-```ts
-if (age > 4 && age < 18) {
+if (isOfSchoolAge(age)) {
   applyTaxBenefit();
 }
 ```
-</div>
 
 <!--
 TODO
 -->
-
----
-layout: section
----
-
-# Functions
 
 ---
 
@@ -250,27 +222,87 @@ layout: section
 
 <v-clicks>
 
-- TODO
+- Small
+- Do one thing
+- Named based on what it does
 
 </v-clicks>
 
-<!--
-TODO
--->
-
----
-
-# Function Arguments
+<h2 v-click>Benefits</h2>
 
 <v-clicks>
 
-- TODO
+- Easier to test
+- Easier to reason about
+- Easier to detect a bloated function
+
+</v-clicks>
+
+---
+
+# Functions
+
+---
+
+## General Things to Avoid
+
+<v-clicks>
+
+- Overly nested control structures
+- Unnecessary switch statements
+- Long if-else-if chains
 
 </v-clicks>
 
 <!--
-TODO
+- Prefer early returns over nested control structures
+- Switch statements have their place, but they're not what I reach for first
+- Switch statement footguns
+- TODO: Mention typescript 5.0 exhaustive switch case thing
 -->
+
+---
+layout: center-code
+---
+
+# Too Many Function Parameters
+
+```ts {1|3|5}
+foo();
+
+foo(ok, nice);
+
+foo(maybe, its, time, to, refactor);
+```
+
+---
+
+# Too Many Function Parameters
+
+<v-clicks>
+
+- Function is doing more than one thing
+- Harder to interpret at a glance
+- Readers more likely to to ignore long lists
+
+</v-clicks>
+
+---
+layout: center-code
+---
+
+# Options Object Parameter
+
+```ts {1|3-8}
+transform("the quick brown fox", "utf-8", false, 3, " ");
+
+transform("the quick brown fox", {
+  language: "en",
+  delimiter: " ",
+  maxLines: 3,
+  truncate: false,
+});
+```
 
 ---
 
@@ -299,9 +331,8 @@ layout: section
 <v-clicks>
 
 - Ideally none
-- Explain with code rather than comments (naming)
+- Explain with code rather than comments
 - Sometimes necessary
-- To TODO, or not to TODO
 
 </v-clicks>
 
@@ -309,10 +340,49 @@ layout: section
 For example, if you had to write some code in order to work around a bug in a library you're consuming,
 then leaving a comment that links to the issue for that specific bug is useful. It lets other devs know
 why you did this, and also makes it easy to check if the bug is fixed the next time someone touches the code.
-
-TODOs are a bit contentious, but I think they're fine. They're a signal for future developers that there's a
-potential change to be done, but for whatever reason it wasn't done
 -->
+
+---
+layout: center-code
+---
+
+```ts {1-3|6-8}
+// Check if eligible for long service leave
+if (employee.type === 'Permanent' && employee.tenure >= 7) {
+  // ...
+}
+
+if (isEligibleForLongServiceLeave(employee)) {
+  //...
+}
+```
+
+---
+layout: center-code
+---
+
+```tsx
+// matches hh:mm:ss
+const timeRegexp = new RegExp('\\d\\d:\\d\\d:\\d\\d');
+```
+
+---
+layout: center-code
+---
+
+# TODO
+
+<!--
+- TODOs are a bit contentious, but I think they're fine. They're a signal for future developers that there's a
+potential change to be done, but it didn't need to be done immediately
+- Maybe there was a deadline and it was a nice-to-have, or it's an idea that needs to be explored further
+-->
+
+---
+layout: center
+---
+
+# Don't Leave Commented Code
 
 ---
 layout: section
@@ -329,7 +399,7 @@ layout: section
 - Line length limits are a thing of the past
 - Code formatters help ensure lines don't get too long
 - The contents of a file should be related to the name of the file
-- Large files can indicate 
+- Large files can signal an opportunity to split things up
 
 </v-clicks>
 
@@ -347,6 +417,18 @@ TODO
 <!--
 TODO
 -->
+
+---
+layout: center-code
+---
+
+# Proximity Implies Association
+
+---
+layout: center-code
+---
+
+# Stepdown Rule
 
 ---
 layout: section
