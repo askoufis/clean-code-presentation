@@ -14,10 +14,10 @@ layout: cover
 How to be nice to your fellow developers
 
 <!--
-The goal of this presentation is to instill in you some practices and guidelines that will help you
-write clean code. The ability to write and maintain clean code is an invaluable skill on any team,
-but it takes time to cultivate this skill, so hopefully this presentation will be a solid step
-forward 
+- Goal is to instill some practices and guidelines that will help you write better code
+- Ability to write clean and maintainable code is an invaluable skill on any team
+- A skill that takes time to cultivate
+- This presentation will present some guidelines and advice that will hopefully help improve this skill, both in the short and long term
 -->
 
 ---
@@ -49,6 +49,8 @@ implies the existence of dirty code". And, at least according to the book, dirty
 
 </v-clicks>
 
+<h2 v-click>Causes</h2>
+
 <v-clicks>
 
 - Experimentation
@@ -60,19 +62,27 @@ implies the existence of dirty code". And, at least according to the book, dirty
 </v-clicks>
 
 <!--
-
-You've probably encountered dirty code before. Before you even try to figure out what the code is
-doing, it can sometimes be hard to read the code in the first place. Maybe it has inconsistent
-formatting, or it's structured in a way that makes it hard to follow. This makes it hard to
-understand what the code is doing, in turn making it harder to change the code, and overall making
-the code hard to maintain.
+- Might've encountered dirty code before
+- Hard to read, just visually
+- Hard to understand what it's doing
+- Leads to difficulty when making changes
+- Ultimately the code is hard to maintain
 
 ## Causes
 
-Gotta be honest, I've written some dirty code before. I still occasionally do, and I'm sure you all have and still do.
-Depending on your situation
-
-TODO
+- I've written dirty code before, and I probably still do, it's situational
+- Not all code has to be perfect
+- Test/experimental code that isn't going to be used for anything serious
+- Doesn't mean care shouldn't be taken, but no need to be pedantic
+- Deadlines
+- Wanting to write the code quickly, even without a deadline
+- Unfamiliarity
+- Neglect, code rot
+- A lot of old code will probably look bad to you, even if you wrote it
+- If I looked at my own old code, I'd probably think it was dirty
+- This just means we've probably gotten better at writing code
+- Also, code trends change over time
+- Tomorrow might write some code a different way than today
 -->
 
 ---
@@ -90,12 +100,16 @@ TODO
 </v-clicks>
 
 <!--
-First and foremost, writing clean code should be done with the reader in mind. You're writing code
-not only for your future self, but for both existing and future team members, some of whom you may
-never meet. The overall goal of writing clean code is to improve the readability, understanding and
-maintainability of software.
-
-Clean code also isn't just a one time thing. It's a continuous practice that 
+- Code should be written with the reader in mind
+- You are a future reader, but so are other team members, some of whom you may never meet
+- If deleloping OSS, anyone can read that code
+- Improve readability, undertanding, maintainability
+- Continuous process for all code you write
+- Even code you've already written is worth re-evaluating when making changes
+- Clean once doesn't mean clean forever
+- As mentioned in the last slide, code trends and best practices change over time, your code should adapt to these changes
+- What clean code is also depends on where you're writing it
+- If you have performance constraints, then that may make you write code differently than you otherwise would
 -->
 
 ---
@@ -107,7 +121,9 @@ layout: quote
 — _A scout that grew up to be a software developer, probably_
 
 <!--
-TODO
+- Modified boy scout rule
+- Good general principle to keep in mind
+- If you're changing some code, try to leave it in a better state than it was before
 -->
 
 ---
@@ -124,7 +140,7 @@ TODO
 </v-clicks>
 
 <!--
-TODO
+- Guidelines, not strict rules, deviation is valid
 -->
 
 ---
@@ -160,8 +176,10 @@ TODO
 
 ---
 layout: center-code
-size: 4
+size: 3
 ---
+
+# Naming
 
 ```ts {1-10|12-21|all}
 type Addr = {
@@ -239,26 +257,196 @@ TODO
 </v-clicks>
 
 ---
+layout: center-code
+size: 3
+---
 
-# Functions
+# Nested Control Structures
+
+```ts
+if (
+  datePicker.startDate === null ||
+  datePicker.endDate === null
+) {
+  sendInvalidDateMessage();
+} else {
+  if (
+    datePicker.startDate !== null &&
+    datePicker.endDate !== null
+  ) {
+    if (datePickerStart.SelectedDate === datePickerEnd.SelectedDate) {
+      if (index1 === index2) {
+        if (StartInt === EndInt) {
+          if (radioButton.IsChecked === true) {
+            printTime();
+          } else {
+            printTimeInADifferentWay();
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+<!--
+- Just some example code, not really reflective of how you would actually implement a date picker, really just used to illustrate bad structure
+-->
+
+---
+layout: center-code
+size: 4
+---
+
+# Nested Control Structures
+
+```ts
+const { startDate, endDate } = datePicker;
+
+if (startDate === null || endDate === null) {
+  sendInvalidDateMessage();
+  return;
+}
+
+if (startDate !== endDate || index1 !== index2 || startInt !== endInt) {
+  return;
+}
+
+if (radioButton.isChecked) {
+  printTimeInADifferentWay();
+  return;
+}
+
+printTime();
+```
+
+<!--
+- Early returns are a great pattern that help
+- Negate and group some logic to isolate each case
+-->
 
 ---
 
-## General Things to Avoid
+# Switch Statements
 
 <v-clicks>
 
-- Overly nested control structures
-- Unnecessary switch statements
-- Long if-else-if chains
+- Easy to forget `break` or `default` case (TypeScript can help)
+- Fall through logic can be risky
+- Not bad maintainability for small number of cases
+- Maintainability does not scale well as more cases are added
 
 </v-clicks>
 
+---
+layout: center-code
+--- 
+
+# Switch Statements
+
+```ts
+function getAnimalSound(animal: string): string {
+  switch (animal) {
+    case "Dog":
+      return "Woof";
+    case "Cat":
+      return "Meow";
+    case "Cow":
+      return "Moo";
+    default:
+      return "Growl";
+  }
+}
+```
+
+---
+layout: center-code
+--- 
+
+# Switch Statements
+
+```ts
+const soundFromAnimal = {
+  Dog: "Woof",
+  Cat: "Meow",
+  Cow: "Moo",
+};
+
+const defaultAnimalSound = "Growl";
+
+function getAnimalSound(animal: string): string {
+  return soundFromAnimal[animal] || defaultAnimalSound;
+}
+```
+
 <!--
-- Prefer early returns over nested control structures
-- Switch statements have their place, but they're not what I reach for first
-- Switch statement footguns
-- TODO: Mention typescript 5.0 exhaustive switch case thing
+- Realistically would utilize stricter types
+- soundFromAnimal data is now accessible outside the function
+-->
+
+---
+layout: center-code
+size: 4
+---
+
+# Long if-else-if Chains
+
+```ts
+function doThing(input: string): string {
+  let output = input;
+
+  if (input.startsWith("foo")) {
+    output += "1";
+  } else if (input.endsWith("foo")) {
+    output += "2";
+  } else if (input.startsWith("bar")) {
+    output += "3";
+  } else if (input.endsWith("bar")) {
+    output += "4";
+  }
+
+  // Do some other stuff to output
+
+  return output;
+}
+```
+
+---
+layout: center-code
+size: 3
+---
+
+# Long if-else-if Chains
+
+```ts
+function doThing(input: string): string {
+  if (input.startsWith("foo")) {
+    return `${input}1`;
+  }
+
+  if (input.endsWith("foo")) {
+    return `${input}2`;
+  }
+
+  if (input.startsWith("bar")) {
+    return `${input}3`;
+  }
+
+  if (input.endsWith("bar")) {
+    return `${input}4`;
+  }
+
+  return input;
+}
+
+function doMoreStuff(input: string): string {}
+```
+
+<!--
+- Other code had extra stuff occurring after the if-else chain
+- Likely worth refactoring that into another function, as it's separate to the logic
+- if-else change is often densely formatted
+- If + early return creates nice separations between each if statement
 -->
 
 ---
@@ -305,20 +493,6 @@ transform("the quick brown fox", {
 ```
 
 ---
-
-# Control Flow
-
-<v-clicks>
-
-- TODO
-
-</v-clicks>
-
-<!--
-TODO
--->
-
----
 layout: section
 ---
 
@@ -346,6 +520,8 @@ why you did this, and also makes it easy to check if the bug is fixed the next t
 layout: center-code
 ---
 
+# Comments
+
 ```ts {1-3|6-8}
 // Check if eligible for long service leave
 if (employee.type === 'Permanent' && employee.tenure >= 7) {
@@ -361,6 +537,8 @@ if (isEligibleForLongServiceLeave(employee)) {
 layout: center-code
 ---
 
+# Comments
+
 ```tsx
 // matches hh:mm:ss
 const timeRegexp = new RegExp('\\d\\d:\\d\\d:\\d\\d');
@@ -370,7 +548,7 @@ const timeRegexp = new RegExp('\\d\\d:\\d\\d:\\d\\d');
 layout: center-code
 ---
 
-# TODO
+# TODOs
 
 <!--
 - TODOs are a bit contentious, but I think they're fine. They're a signal for future developers that there's a
@@ -379,10 +557,25 @@ potential change to be done, but it didn't need to be done immediately
 -->
 
 ---
-layout: center
+
+# Contextual Comments
+
+<v-clicks>
+
+- Information that explains implementation/structure
+- Link to a formal specification
+- Link to github issue
+- Reasoning for one approach over another
+
+</v-clicks>
+
 ---
 
-# Don't Leave Commented Code
+# Commented Code
+
+- Fine temporarily
+- Bloats files
+- If it's committed, just delete it
 
 ---
 layout: section
@@ -434,7 +627,7 @@ layout: center-code
 layout: section
 ---
 
-# Tools
+# Tooling
 
 ---
 
@@ -443,7 +636,7 @@ layout: section
 <v-clicks>
 
 - Enforce consistent style
-- Consistency trumps personal preference
+- Consistency (usually) trumps personal preference
 
 </v-clicks>
 
@@ -476,7 +669,7 @@ TODO
 layout: section
 ---
 
-# Miscellaneous
+# Acronyms
 
 ---
 
@@ -506,12 +699,4 @@ WET
 optimize for change
 
 AHA
--->
-
----
-
-# Conclusion
-
-<!--
-TODO
 -->
