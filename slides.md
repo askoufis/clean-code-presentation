@@ -473,7 +473,6 @@ const defaultAnimalSound = "Growl";
 const getAnimalSound = (animal: string): string =>
   soundFromAnimal[animal] || defaultAnimalSound;
 
-
 const allAnimals = Object.keys(soundFromAnimal);
 const allSounds = [...Object.values(soundFromAnimal), defaultAnimalSound];
 ```
@@ -576,7 +575,7 @@ layout: center-code
 
 # Too Many Function Parameters
 
-```ts {1|3|5}
+```ts {1|1-3|1-5}
 foo();
 
 bar(ok, nice);
@@ -678,7 +677,7 @@ layout: center-code
 
 # Comments
 
-```ts {1-3|6-8}
+```ts {1-3|6-8|all}
 // Check if eligible for long service leave
 if (employee.type === 'Permanent' && employee.tenure >= 7) {
   // ...
@@ -702,7 +701,7 @@ layout: center-code
 
 # Comments
 
-```tsx
+```ts
 // matches hh:mm:ss
 const timeRegexp = new RegExp('\\d\\d:\\d\\d:\\d\\d');
 ```
@@ -764,9 +763,13 @@ layout: center-code
 
 # Commented Code
 
+<v-clicks>
+
 - Fine temporarily, just don't commit it
 - Bloats files
-- If it's committed, just delete it
+- If it's committed, just delete it, it can be recovered
+
+</v-clicks>
 
 <!--
 - Commented code should never exist in a repo
@@ -846,13 +849,16 @@ doSomethingWith(thing);
 
 - Very much a personal preference
 - Code formatting tools get you 90% of the way there
-- A little goes a long way
-- IMO very underrated in its effect on readability
+- IMO newlines are very underrated in their effect on readability
 
 </v-clicks>
 
 <!--
-TODO
+- Whitespace is a thing that is contentious amongst developers
+- You might have heard of the great tabs vs spaces war
+- Code formatting tools help out with this a lot by enforcing rules
+- I think that a lot of developers could improve the readability of their code significantly by adding in just a bit more whitespace here and there
+- Specifically I think newlines are underrated and can enhanced readability a lot more than peoople think
 -->
 
 ---
@@ -862,7 +868,7 @@ size: 3
 
 # Separate Groups of Related Code
 
-```ts
+```ts {1-10|12-23|all}
 const myFunction = (input: string) => {
   const uppercaseInput = input.toUpperCase();
   const words = uppercaseInput.split(" ");
@@ -887,6 +893,16 @@ const myFunction = (input: string) => {
   console.log(`${filteredWords.length} words remaining :)`);
 };
 ```
+
+<!--
+- This isn't a particularly controversial opinion
+- I think most devs would try to do this to some extent
+- The idea is to separate groups of related code with new lines
+- Helps to break things up, gives you eyes a natural way to group things
+- Gives the code a vertical structure, allowing you to get lost less often
+- Like how you might be reading a dense page of a book and you get to the end of a line and then go back to the left of the page and start reading the same line again
+- This helps mitigate that
+-->
 
 ---
 layout: center-code
@@ -916,6 +932,15 @@ const myOtherFunction = () => {
   return 2;
 };
 ```
+
+<!--
+- Again, nothing too controversial here
+- Separating declarations at the top level, meaning the top scope of your file, helps group different parts of your file, and keeps things separate to give your eyes natural chunks of things to look at
+- Here the import statements at the top are right before the first function, and the second function is right after that one
+- In this second bit of code, things are more spaced out
+- The imports are cleanly separated from the functions
+- it's clear where one function starts and the other ends
+-->
 
 ---
 layout: center-code
@@ -952,6 +977,13 @@ const myFunction = (input: number) => {
 };
 ```
 
+<!--
+- Here is one I like to do
+- Separating if statements
+- Much like functions, I think if statements are easier to read and group visually when they're separated by a new line
+- Yes, this can make some functions quite a bit longer, but would you rather them all clumped together instead?
+-->
+
 ---
 layout: center-code
 size: 3
@@ -959,7 +991,7 @@ size: 3
 
 # Separate Final Return Statements
 
-```ts {1-10|12-22|all}
+```ts {1-10|12-24|all}
 const myFunction = (input: number) => {
   if (input > 0) {
     doThing();
@@ -980,64 +1012,90 @@ const myFunction = (input: number) => {
     doSomeOtherThing();
   }
 
-  return input + 1;
+  const output = input + 1;
+
+  return output;
 };
 ```
 
+<!--
+- Here's a small one I like to do
+- Put a new line above the final return statement of a function
+- I find this really helps with locating the return statement of a function
+- Like, of course it's going to be the last line of your function, but I find it nice on the eyes to isolate it
+- It's a good signifier that this is the thing the function returns, and it's often worth paying attention to
+-->
+
 ---
 layout: center-code
-size: 4
+size: 3
 ---
 
 # Separate Test Cases
 
 ```ts
-describe("myFunction", () => {
-  it("should return 1 when given an input of 0", () => {
-    // test stuff
+describe("All my cool functions", () => {
+  describe("myFunction", () => {
+    it("should return 1 when given an input of 0", () => {
+      // test stuff
+    });
+    it("should return 2 when given an input of 1", () => {
+      // test stuff
+    });
   });
-  it("should return 2 when given an input of 1", () => {
-    // test stuff
-  });
-});
-describe("myOtherFunction", () => {
-  it("should return -1 when given an input of 0", () => {
-    // test stuff
-  });
-  it("should return 0 when given an input of 1", () => {
-    // test stuff
+  describe("myOtherFunction", () => {
+    it("should return -1 when given an input of 0", () => {
+      // test stuff
+    });
+    it("should return 0 when given an input of 1", () => {
+      // test stuff
+    });
   });
 });
 ```
 
+<!--
+- This is a bit of a pet peeve of mine
+- A lot of javascript test frameworks allow you to write tests in this nested style
+- You'll probably be using jest at some point, and it uses this style
+- The API itself is based around this kind of nesting, and yet I see all the time people bunching all of these nested functions together
+- I find it makes it quite hard to see where one test ends and the next begins, and to figure out the scopes of each of these describe blocks
+-->
+
 ---
 layout: center-code
-size: 4
+size: 3
 ---
 
 # Separate Test Cases
 
 ```ts
-describe("myFunction", () => {
-  it("should return 1 when given an input of 0", () => {
-    // test stuff
+describe("All my cool functions", () => {
+  describe("myFunction", () => {
+    it("should return 1 when given an input of 0", () => {
+      // test stuff
+    });
+
+    it("should return 2 when given an input of 1", () => {
+      // test stuff
+    });
   });
 
-  it("should return 2 when given an input of 1", () => {
-    // test stuff
-  });
-});
+  describe("myOtherFunction", () => {
+    it("should return -1 when given an input of 0", () => {
+      // test stuff
+    });
 
-describe("myOtherFunction", () => {
-  it("should return -1 when given an input of 0", () => {
-    // test stuff
-  });
-
-  it("should return 0 when given an input of 1", () => {
-    // test stuff
+    it("should return 0 when given an input of 1", () => {
+      // test stuff
+    });
   });
 });
 ```
+
+<!--
+- With just 3 new lines added between the it blocks and describe blocks, I think this is way more readable, and easier on the eyes
+-->
 
 ---
 layout: section
@@ -1045,49 +1103,86 @@ layout: section
 
 # Tooling
 
----
-
-# Formatting Tools
-
-<v-clicks>
-
-- Formats your code according to specific rules
-- In the JavaScript/TypeScript ecosystem Prettier is very common
-- Enforce consistent style
-- Consistency trumps personal preference (no more arguing over code formatting)
-
-</v-clicks>
-
-TODO: Comparison between unformatted and code formatted with prettier
-
 <!--
-TODO
+- This is a short section about tools that help us write cleaner code
 -->
 
 ---
 
-# Linting
+# Code Formatters
+
+<v-clicks>
+
+- Formats your code according to specific rules
+- Enforce consistent style
+- Consistency trumps personal preference
+- In the JavaScript/TypeScript ecosystem [Prettier](https://prettier.io/) is the commonly use code formatter
+
+</v-clicks>
+
+<!--
+- Formatting tools format your code according to specific rules
+- The point of them is to make it super easy to consistently format your code
+- Regardless of whether or not you agree about every single formatting decision
+- The point is to have a source of truth for "correctly formatted" code
+- Prettier is the common one used in the javascript/typescript ecosystem, sku uses it to format your code
+-->
+
+---
+layout: center
+---
+
+# Code Formatters
+
+<div class="flex flex-col gap-4 place-content-center">
+  <img src="/before-prettier.png" />
+  <img src="/after-prettier.png" v-click/>
+</div>
+
+---
+
+# Linters
 
 <v-clicks>
 
 - Warns/errors on specific code patterns
-- Find code smells
+- Enforce certain syntax patterns
+- [ESLint](https://eslint.org/) common in the JavaScript/TypeScript ecosystem
+- Identify code smells
 - Prevent footguns
 - Can automatically fix some issues
 
 </v-clicks>
 
-TODO: Image of an eslint warning and error
-
 <!--
-TODO
+- Linters are tools that check for specific code patterns based on rules you configure
+- The allow you to enforce specific patterns
+- These patterns could be just objectively better than alternatives, or personal preference stylistic choices
+- They act on a different level than code formatters, analyzing the syntax of the code itself, i.e. how you're using the code, rather than just making things look nice
+- JavaScript has some weird features that not many people use, or are commonly advised against, and eslint can help enforce that they're not use in your codebase
+- It can even fix some issues for you, specifically ones that have a clear alternative
 -->
+
+---
+layout: center
+---
+
+# Linters
+
+<div class="flex flex-col gap-4 place-content-center">
+  <img src="/before-eslint.png" />
+  <img src="/after-eslint.png" v-click/>
+</div>
 
 ---
 layout: section
 ---
 
 # Acronyms
+
+<!--
+- This last contains a few acronyms that can be good general guidelines when writing code
+-->
 
 ---
 
@@ -1098,23 +1193,45 @@ layout: section
 - KISS (Keep It Simple, Silly)
 - DRY (Don't Repeat Yourself)
 - WET (Write Everything Twice)
-- AHA (Avoid Hasty Abstractions)
+- [AHA](https://kentcdodds.com/blog/aha-programming) (Avoid Hasty Abstractions)
+- "Prefer duplication over the wrong abstraction"
+- "Optimize for change first"
 
 </v-clicks>
 
 <!--
-When writing code, there are a few acronyms that be useful to keep in mind.
+- KISS is a common one you might've heard of
+- It stands for...
+- Intended to be a reminder to value simple code over, for example, overly concise code, or code that uses an obscure language feature
+- Can be tempting to try and make your code as concise or as clever as possible
+- In reality this tends to make it harder for any person who has to read the code in the future, including you, to understand
 
-KISS is a common one you might've heard of. It stands for "Keep it simple, silly", or some variation of that.
-It's intended to be a reminder to value simple code over, for example, overly concise code,
-or code that uses an obscure language feature. While it can be tempting to try and make your code as concise or as clever
-as possible, in reality this tends to make it harder for any person who has to read the code in the future, including you.
+- DRY is another common one you might've heard of
+- It stands for...
+- It's a reminder that if you write something more than once, chances are it would be a good candidate to put it into a function, a class, or more generally abstract it into something that can be used in multiple places, maybe even a code package
+- That being said, I think the last acronym is better 
 
-DRY is another common one you might've heard of. It stands for "Don't repeat yourself". 
+- Before the last one, there's another one that's kind of the opposite of DRY
+- WET I didn't hear until recently
+- It stands for...
+- I've seen it used in two ways
+- The first way is obvious in that it's the opposite of DRY
+- If code is WET, then it's repetitive and could likely be re-written to be less repetitive
+- Another way I've seen it used is in a more positive way
+- If you find yourself about to write some code that's similar to something you've written before, intead of immediately turning it into a function that can be used on both places, it can be worth just having both bits of similar code around for a bit
+- For relatively simple code, this isn't that bad, and honestly is a good thing according to the KISS principle
+- Abstractions, while good, are often more complex than just writing similar code twice
+- By waiting until you've written everything twice before you consider whether or not to abstract over that code, it gives you time to write more code that could potentially also use that same code, and at that point the correct abstraction will be much more obvious
 
-WET
-
-optimize for change
-
-AHA
+- This ties into the 4th acronym, which is AHA
+- It stands for...
+- An alternative way of saying this is >>>
+- Another form this can take is >>>
+- The crux of this last principle is that we don't the future will require of our code
+- Could spend weeks optimizing code for performance, or coming up with the best way to abstract over some code
+- But then the next day something changes and our abstraction needs to be rewritten, or maybe the feature the code was written for is no longer needed
+- Now, this doesn't mean just copy code everywhere
+- But once you've gotten to the point where you can clearly identify the use cases for that duplicate code, the differences in the code will be obvious, and the commonalities will scream at you for abstraction
+- If you abstract early, you'll think that it's perfect right from the start, and you'll end up just bending the code to fit your new abstraction
+- Keep doing this, and you could eventually end up with your entire application inside a bunch of `if` statements and loops
 -->
