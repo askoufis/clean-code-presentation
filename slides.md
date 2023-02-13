@@ -1,12 +1,11 @@
 ---
 theme: default
 highlighter: shiki
-# persist drawings in exports and build
 drawings:
   persist: false
 css: unocss
-
 layout: cover
+title: Clean Code
 ---
 
 # Clean Code
@@ -14,11 +13,12 @@ layout: cover
 How to be nice to your fellow developers
 
 <!--
-- Goal is to instill some practices and guidelines that will help you write better code
+- Goal is to instill some practices and guidelines that will help you write better and more maintainable code
 - Ability to write clean and maintainable code is an invaluable skill on any team
 - A skill that takes time to cultivate
 - This presentation will present some guidelines and advice that will hopefully help improve this skill, both in the short and long term
-- There's plenty more advice out there that I won't cover, this presentation is meant to be aimed at relatively new developers
+- Also, the advice in this presentation is mainly aimed at newer developers
+- Plenty more advice out there that I won't be covering today due to the amount of time we have
 -->
 
 ---
@@ -56,34 +56,36 @@ implies the existence of dirty code". And, at least according to the book, dirty
 
 - Experimentation
 - Time pressure
-- The _Need for Speed_ ™️
+- The _Need for Speed_™️
 - Unfamiliarity with codebase/language
-- Neglect
+- Neglect/Code rot
 
 </v-clicks>
 
 <!--
-- Might've encountered dirty code before
-- Hard to read, just visually
-- Hard to understand what it's doing
-- Leads to difficulty when making changes
-- Ultimately the code is hard to maintain
+- Might've encountered dirty code before @
+- 1@2@3
+- Leads to difficulty when making changes@
+- Ultimately the code is hard to maintain@
 
 ## Causes
 
-- I've written dirty code before, and I probably still do, it's situational
-- Not all code has to be perfect
+- I've written dirty code before, and I probably still do, it's very situational
+- But in the end not all code has to be perfect
+- Plenty of reasons why dirty code might exist@
 - Test/experimental code that isn't going to be used for anything serious
-- Doesn't mean care shouldn't be taken, but no need to be pedantic
-- Deadlines
-- Wanting to write the code quickly, even without a deadline
-- Unfamiliarity
-- Neglect, code rot
-- A lot of old code will probably look bad to you, even if you wrote it
+- Doesn't mean care shouldn't be taken, but no need to be pedantic about code style or readability@
+- 2 deadlines @
+- Wanting to write the code quickly, even without a deadline @
+- 4@
+- 5
+- AKA code rot
+- Code get outdated, it falls behind best practices
+- Our industry moves pretty fast
+- Common today may be old practice by tomorrow
+- In fact, a lot of old code will probably look bad to you, even if you wrote it
 - If I looked at my own old code, I'd probably think it was dirty
 - This just means we've probably gotten better at writing code
-- Also, code trends change over time
-- Tomorrow might write some code a different way than today
 -->
 
 ---
@@ -93,7 +95,7 @@ implies the existence of dirty code". And, at least according to the book, dirty
 <v-clicks>
 
 - Reader-focused development style
-- Improves readability, understanding and maintainability of software
+- Aims to improve readability, understanding and maintainability of software
 - Continuous
 - Evolving
 - Context-dependent
@@ -101,16 +103,23 @@ implies the existence of dirty code". And, at least according to the book, dirty
 </v-clicks>
 
 <!--
+- @1
 - Code should be written with the reader in mind
-- You are a future reader, but so are other team members, some of whom you may never meet
-- If deleloping OSS, anyone can read that code
-- Improve readability, undertanding, maintainability
-- Continuous process for all code you write
+- You are a potential future reader, but so are other team members, some of whom you may never meet
+- If developing OSS, anyone can read that code
+- The main goal of it is to
+- @2@3
+- Not a one-time thing
 - Even code you've already written is worth re-evaluating when making changes
+- @
 - Clean once doesn't mean clean forever
-- As mentioned in the last slide, code trends and best practices change over time, your code should adapt to these changes
-- What clean code is also depends on where you're writing it
+- As mentioned in the last slide, code trends and best practices change over time
+- One principle that I'll talk about right at the end is optimizing for change
+- Making sure that your code can adapt when the time comes to do so
+- @What is defined as clean code is also dependent on your context, i.e. in what kind of environment you're writing it
 - If you have performance constraints, then that may make you write code differently than you otherwise would
+- Similarly, if you're writing code in a more educational context, then you might use very simple patterns to make the code easy to understand
+- Next is a quote that you might've heard @
 -->
 
 ---
@@ -123,8 +132,11 @@ layout: quote
 
 <!--
 - Modified boy scout rule
+- 1
 - Good general principle to keep in mind
 - If you're changing some code, try to leave it in a better state than it was before
+- It might not always be practical to do this every time you change some code, but it's a good mindset to be in when working on any code, "How can I make this better"
+- Before we start on the main context, I want to go over a few things that you should keep in mind @ throughout the presentation, and going forward in during the rest of your career
 -->
 
 ---
@@ -141,17 +153,19 @@ layout: quote
 </v-clicks>
 
 <!--
-- Guidelines, not strict rules, deviation is valid
-- Some advice is objectively good, other is opinion or personal preference
+- @Guidelines, not strict rules, deviation is valid if the circumstance s make sense@
+- Some advice is objectively good, common sense advice, other advice is opinion or personal preference
 - Encourage you to form your own opinions over time
-- Some advice is universal
+- Some advice is universal@
 - Other advice is very language-dependent
 - Some patterns may be cleaner to write a different way in another language
 - This presentation is more JavaScript/TypeScript focused
 - Other langauges have other features that allow you to write code in different ways
+- @Finally, and I think most importantly, 4
 - Within a team, patterns and ways of writing code will already be well-established
 - Following existing code is a good approach, assuming that code is already written in a good way
-- Doesn't mean coding style shouldn't change, but having a mix of different styles can be confusing and make code harder to maintain
+- Feel free to challenge those patterns if you think there is a better way to write them
+- Consistency doesn't mean coding style shouldn't change, but having a mix of different styles can be confusing and make code harder to maintain, that's the ultimate goal of consistency
 -->
 
 ---
@@ -183,7 +197,7 @@ layout: quote
 - A bit of effort goes a long way
 - Pronounceable
 - Meaningful
-- We live in [current year], not the 70s, no need to save space
+- We live in [current year], not the 70s, no need to save space on variable/function names
 - Leverage your IDE's autocomplete
 
 </v-clicks>
@@ -197,7 +211,7 @@ layout: quote
 <!--
 - Spending a bit of time thinking about names saves headaches in the future
 - I get triggered by badly named github repos and slack channels
-- Slack channel isn't too bad to rename, but renaming popular github repos can cause a bit of chaos
+- Slack channel isn't too bad to rename, but renaming popular github repos can cause a bit of chaos {click}
 - When it comes to variables and functions, names should be pronounceable and meaningful
 - Modern era, no need to save space on punchcards
 - Long variable or function names a fine, within reason
@@ -250,6 +264,7 @@ const parsedAddress = parseAddressFromInput(addressString);
 - {click}
 - Generally, longer names are easier to read, leave little room for interpretation
 - This ties into the next piece of advice, which is >>>
+FIXME
 -->
 
 ---
@@ -301,23 +316,23 @@ if (isOfSchoolAge(age)) {
 <v-clicks>
 
 - Easier to test
-- Easier to reason about
+- Easier to understand how they work
 - Easier to change
 - Easier to detect a bloated function
 
 </v-clicks>
 
 <!--
-- Ideally, functions should be small and do one thing
+- Ideally, {c} functions should be small {c} and do one thing
 - Named based on what it does
 - If it's hard to name a function, might mean it does too many things
 - Obviously some functions can be large and do multiple things, but there shouldn't be lots of those types of functions in your code
 
 ## Benefits to these guidelines
-- Small functions are easier to test in isolation
-- Eaiser to understand what they do
-- Changing a small function that's used for a specific purpose is easier than a large function that does lots of thigns
-- Changing a large function usually means changing more tests relative to a smaller function
+- Small functions are easier to test in isolation {c}
+- Eaiser to understand FIXME: (reason about)  what they do {c}
+- Changing a small function that's used for a specific purpose is easier than a large function that does lots of things
+- Changing a large function usually means changing more tests relative to a smaller function {c}
 - Sticking to these guidelines makes it easier to detect a bloated function that does too many things
 - Now going to cover a few coding patterns to avoid, firstly >>>
 -->
@@ -420,7 +435,7 @@ printTime();
 - Switch statements have some footguns, forgetting a break or default can lead to incorrect code
 - Upcoming version of typescript, version 5.0, can help with this
 - It will automatically fill in all switch cases based on the type
-- Fall through logic can be used well, but it's hard to get right and I find it harder to understand relative to plain if statements
+- Fall through logic can be used well, but it's hard to get right and I find it harder to understand relative to plain if statements {c}
 - For a small number of cases, it can be alright to maintain, but cases can grow, and each new case is an opportunity to forget a `break` statement
 - Here's an example of another reason you may NOT want to use switch cases >>>
 -->
@@ -662,13 +677,14 @@ layout: section
 <!--
 - If anyone here has just gotten out of university, you might be used to putting comments everywhere in your code
 - While this was likely useful at the time, it's primary purpose would've been to show whoever is assessing your code that you know what the code does
-- Hopefully the stuff we've covered so far will make your code easier to understand without comments
+- Hopefully the stuff we've covered so far will make your code easier to understand without comments {click}
 - To the point where, in an ideal world, you wouldn't need to write comments
-- Ideally, all code would be easy to understand, and you'd never need to explain it
+- Ideally, all code would be easy to understand, and you'd never need to explain it {click}
 - In practice though, code is rarely that simple
 - The problem you're solving has some inherent complexity that may need to be explained to some degree
 - The problem with using too many comments is that, when that code inevitably changes, those comments may need to move, be updated, or be deleted
 - Adding comments creates more work for future developers
+- The main way comments can be useful is to provide context to the reader
 -->
 
 ---
@@ -750,11 +766,11 @@ layout: center-code
 </v-clicks>
 
 <!--
-- Another type of valid are what I call contextual comments
+- Another type of valid comment are what I call contextual comments
 - Provide context to a developer about non-obvious code choices
-- Ties back to the idea that problems have inherent complexity that is just unavoidable, some problems are complicated, and that's that
-- You might want to explain why you chose a specific data structure
-- Maybe link to a formal specification that details how something works in lots of detail, and which you based your code off
+- Ties back to the idea that problems have inherent complexity that is just unavoidable, some problems are complicated, and that's that {click}
+- You might want to explain why you chose a specific data structure {click}
+- Maybe link to a formal specification that details how something works in lots of detail, and which you based your code off {click}
 - If there's a bug in some library that you use, and you found a workaround in a github issue, I think it's good practice to leave a comment linking to that github issue
 - This makes it super easy for the next developer who touches this code to check if the bug has been resolved
 -->
@@ -805,16 +821,15 @@ layout: section
 </v-clicks>
 
 <!--
-- As discussed before, physical line length limits don't exist anymore
-- They're just arbitrary nowadays
+- {c} As discussed before, physical line length limits don't exist anymore
+- They're just arbitrary nowadays {c}
 - Code formatting tools help with line length
 - Seems obvious, but file contents should be related to the file name
 - Genericly named files can easily become dumping grounds for shared code
 - Group shared code by their common function
 - Regardless of whether all the contents of a file belongs there, a large file can often signal that it's time to split things up
 - Large files in and of themselves are harder to read and understand than small files
-- 
-
+- Zooming in to the structure of your code >>>
 -->
 
 ---
@@ -1000,7 +1015,8 @@ const myFunction = (input: number) => {
   if (SOME_GLOBAL_VARIABLE === true) {
     doSomeOtherThing();
   }
-  return input + 1;
+  const output = input + 1;
+  return output;
 };
 
 const myFunction = (input: number) => {
