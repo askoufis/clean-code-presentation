@@ -7,10 +7,15 @@
     "export": "slidev export"
   },
   "dependencies": {
-    "@slidev/cli": "^0.40.0",
+    "@slidev/cli": "^0.47.4",
     "@slidev/theme-default": "*"
   },
+  "packageManager": "pnpm@8.15.1",
   "devDependencies": {
-    "playwright-chromium": "^1.29.1"
+    "playwright-chromium": "^1.41.2"
+  },
+  "volta": {
+    "node": "20.11.0",
+    "pnpm": "8.15.1"
   }
 }
