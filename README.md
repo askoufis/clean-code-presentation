@@ -6,6 +6,7 @@ To start the slide show:
 - `pnpm dev`
 - visit http://localhost:3030
 
-Edit the [slides.md](./slides.md) to see the changes.
+Edit [slides.md](./slides.md) to see changes.
 
-Learn more about Slidev on [documentations](https://sli.dev/).
+Learn more about Slidev from [the docs](https://sli.dev/).
+
