@@ -226,29 +226,7 @@ size: 3
 
 # Avoid Abbreviations
 
-```ts {1-10|12-21|all}
-type Addr = {
-  num: number;
-  name: string;
-};
-
-const addrStr = '123 Test St'; // User input
-
-const prsAddr = (a: string): Addr => {};
-
-const addr = prsAddr(addrStr);
-
-type Address = {
-  streetNumber: number;
-  streetName: string;
-};
-
-const userAddressInput = '123 Test St'; // User input
-
-const parseAddressFromInput = (input: string): Address => {};
-
-const parsedAddress = parseAddressFromInput(addressString);
-```
+<<< @/snippets/avoid-abbreviations.ts{1-10|12-21|all}
 
 <!--
 - Addr type, bit vague
@@ -273,19 +251,7 @@ layout: center-code
 
 # Use Names to Add Meaning
 
-```ts {1-3|5-11|all}
-if (age >= 4 && age <= 18) {
-  applyTaxBenefit();
-}
-
-const isOfSchoolAge = (age: number): boolean => {
-  return (age >= 4 && age <= 18);
-}
-
-if (isOfSchoolAge(age)) {
-  applyTaxBenefit();
-}
-```
+<<< @/snippets/use-names-to-add-meaning.ts{1-3|5-11|all}
 
 <!--
 - Top code has some logic, not exactly clear what "rule" this logic represents
@@ -344,31 +310,7 @@ size: 3
 
 # Nested Control Structures
 
-```ts
-if (
-  datePicker.startDate === null ||
-  datePicker.endDate === null
-) {
-  sendInvalidDateMessage();
-} else {
-  if (
-    datePicker.startDate !== null &&
-    datePicker.endDate !== null
-  ) {
-    if (datePickerStart.SelectedDate === datePickerEnd.SelectedDate) {
-      if (index1 === index2) {
-        if (StartInt === EndInt) {
-          if (radioButton.IsChecked === true) {
-            printTime();
-          } else {
-            printTimeInADifferentWay();
-          }
-        }
-      }
-    }
-  }
-}
-```
+<<< @/snippets/nested-control-structures-bad.ts{all}
 
 <!--
 - Just some example code
@@ -388,25 +330,7 @@ size: 4
 
 # Nested Control Structures
 
-```ts
-const { startDate, endDate } = datePicker;
-
-if (startDate === null || endDate === null) {
-  sendInvalidDateMessage();
-  return;
-}
-
-if (startDate !== endDate || index1 !== index2 || startInt !== endInt) {
-  return;
-}
-
-if (radioButton.isChecked) {
-  printTimeInADifferentWay();
-  return;
-}
-
-printTime();
-```
+<<< @/snippets/nested-control-structures-good.ts{all}
 
 <!--
 - Destructuring assignments means we don't have to do datePicker.startDate or endDate
@@ -446,21 +370,7 @@ layout: center-code
 
 # Switch Statements
 
-```ts
-const getAnimalSound = (animal: string): string => {
-  switch (animal) {
-    case "Dog":
-      return "Woof";
-    case "Cat":
-      return "Meow";
-    case "Cow":
-      return "Moo";
-
-    default:
-      return "Growl";
-  }
-}
-```
+<<< @/snippets/switch-statements-normal.ts{all}
 
 <!--
 - Here we're switch on different animals, and returning the sound they make
@@ -476,21 +386,7 @@ size: 4
 
 # Switch Statements
 
-```ts {1-11|all}
-const soundFromAnimal = {
-  Dog: "Woof",
-  Cat: "Meow",
-  Cow: "Moo",
-};
-
-const defaultAnimalSound = "Growl";
-
-const getAnimalSound = (animal: string): string =>
-  soundFromAnimal[animal] || defaultAnimalSound;
-
-const allAnimals = Object.keys(soundFromAnimal);
-const allSounds = [...Object.values(soundFromAnimal), defaultAnimalSound];
-```
+<<< @/snippets/switch-statements-alternative.ts{1-11|all}
 
 <!--
 - Here we have an object where the key is the animal name, and the value is the animal's sound
@@ -511,25 +407,7 @@ size: 4
 
 # Long if-else-if Chains
 
-```ts
-const doThing = (input: string): string => {
-  let output = input;
-
-  if (input.startsWith("foo")) {
-    output += "1";
-  } else if (input.endsWith("foo")) {
-    output += "2";
-  } else if (input.startsWith("bar")) {
-    output += "3";
-  } else if (input.endsWith("bar")) {
-    output += "4";
-  }
-
-  // Do some other stuff to output
-
-  return output;
-}
-```
+<<< @/snippets/long-if-else-chains-bad.ts{all}
 
 <!--
 - Here, we're adding to our input based on some conditions
@@ -547,29 +425,7 @@ size: 3
 
 # Long if-else-if Chains
 
-```ts
-function doThing(input: string): string {
-  if (input.startsWith("foo")) {
-    return `${input}1`;
-  }
-
-  if (input.endsWith("foo")) {
-    return `${input}2`;
-  }
-
-  if (input.startsWith("bar")) {
-    return `${input}3`;
-  }
-
-  if (input.endsWith("bar")) {
-    return `${input}4`;
-  }
-
-  return input;
-}
-
-function doMoreStuff(input: string): string {}
-```
+<<< @/snippets/long-if-else-chains-good.ts{all}
 
 <!--
 - By using early returns, we can make each case distinct, and clearly separate them with white space
@@ -590,13 +446,7 @@ layout: center-code
 
 # Too Many Function Parameters
 
-```ts {1|1-3|1-5}
-foo();
-
-bar(ok, nice);
-
-baz(maybe, its, time, to, refactor);
-```
+<<< @/snippets/too-many-function-parameters.ts{1|1-3|1-5}
 
 <!--
 - Parameters are the named variables in the function definition
@@ -634,16 +484,7 @@ layout: center-code
 
 # Options Object Parameter
 
-```ts {1|all}
-transform("the quick brown fox", "en", false, 3, " ");
-
-transform("the quick brown fox", {
-  locale: "en",
-  delimiter: " ",
-  maxLines: 3,
-  truncate: false,
-});
-```
+<<< @/snippets/options-object-parameter.ts{1|all}
 
 <!--
 - We've got some kind of string transformation function
@@ -691,18 +532,9 @@ layout: section
 layout: center-code
 ---
 
-# Comments
+# Comments - Explain With Code
 
-```ts {1-3|6-8|all}
-// Check if eligible for long service leave
-if (employee.type === 'Permanent' && employee.tenure >= 7) {
-  // ...
-}
-
-if (isEligibleForLongServiceLeave(employee)) {
-  //...
-}
-```
+<<< @/snippets/comments-explain-with-code.ts{1-3|6-8|all}
 
 <!--
 - In this example, we have a comment that explains what you're checking for
@@ -715,12 +547,9 @@ if (isEligibleForLongServiceLeave(employee)) {
 layout: center-code
 ---
 
-# Comments
+# Comments - Non-obvious Information
 
-```ts
-// matches hh:mm:ss
-const timeRegexp = new RegExp('\\d\\d:\\d\\d:\\d\\d');
-```
+<<< @/snippets/comments-non-obvious-information.ts{all}
 
 <!--
 - Comment used to explain what the regex is trying to parse
@@ -732,13 +561,9 @@ const timeRegexp = new RegExp('\\d\\d:\\d\\d:\\d\\d');
 layout: center-code
 ---
 
-# TODOs
+# Comments - TODOs and Context
 
-```ts {1|all}
-// TODO: Fix me
-
-// TODO: Might be better if we use a Set instead of an Array
-```
+<<< @/snippets/comments-todos-and-context.ts{1|3|5|7|all}
 
 <!--
 - TODOs are a bit contentious
@@ -783,7 +608,7 @@ layout: center-code
 
 - Fine temporarily, just don't commit it
 - Bloats files
-- If it's committed, just delete it, it can be recovered
+- If it's committed, just delete it, it can be recovered (that's the point of version control)
 
 </v-clicks>
 
@@ -838,16 +663,7 @@ layout: center-code
 
 # Proximity Implies Association
 
-```ts {1-5|7-8|all}
-const thing = getThingFromSomewhere();
-
-// ... 20 lines later ...
-
-doSomethingWith(thing);
-
-const thing = getThingFromSomewhere();
-doSomethingWith(thing);
-```
+<<< @/snippets/proximity-implies-association.ts{1-5|7-8|all}
 
 <!--
 - This is less of a guideline and more of an implicit rule that I think a lot of programmers use
@@ -883,31 +699,7 @@ size: 3
 
 # Separate Groups of Related Code
 
-```ts {1-10|12-23|all}
-const myFunction = (input: string) => {
-  const uppercaseInput = input.toUpperCase();
-  const words = uppercaseInput.split(" ");
-  const filteredWords = words.filter(myWordFilter);
-  if (filteredWords.length === 0) {
-    console.log("No words remaining :(")
-    return;
-  }
-  console.log(`${filteredWords.length} words remaining :)`);
-};
-
-const myFunction = (input: string) => {
-  const uppercaseInput = input.toUpperCase();
-  const words = uppercaseInput.split(" ");
-  const filteredWords = words.filter(myWordFilter);
-
-  if (filteredWords.length === 0) {
-    console.log("No words remaining :(")
-    return;
-  }
-
-  console.log(`${filteredWords.length} words remaining :)`);
-};
-```
+<<< @/snippets/separate-groups-of-related-code.ts{1-10|12-23|all}
 
 <!--
 - This isn't a particularly controversial opinion
@@ -926,27 +718,7 @@ size: 3
 
 # Separate Top-Level Stuff
 
-```ts {1-8|10-19|all}
-import { foo } from 'foo';
-import { bar } from 'bar';
-const myFunction = () => {
-  return 1;
-};
-const myOtherFunction = () => {
-  return 2;
-};
-
-import { foo } from 'foo';
-import { bar } from 'bar';
-
-const myFunction = () => {
-  return 1;
-};
-
-const myOtherFunction = () => {
-  return 2;
-};
-```
+<<< @/snippets/separate-top-level-stuff.ts{1-8|10-19|all}
 
 <!--
 - Again, nothing too controversial here
@@ -959,38 +731,12 @@ const myOtherFunction = () => {
 
 ---
 layout: center-code
-size: 3
+size: 2.5
 ---
 
 # Separate If Statements
 
-```ts {1-11|13-25|all}
-const myFunction = (input: number) => {
-  if (input > 0) {
-    doThing();
-  }
-  if (input < 0) {
-    doOtherThing();
-  }
-  if (SOME_GLOBAL_VARIABLE === true) {
-    doSomeOtherThing();
-  }
-};
-
-const myFunction = (input: number) => {
-  if (input > 0) {
-    doThing();
-  }
-
-  if (input < 0) {
-    doOtherThing();
-  }
-
-  if (SOME_GLOBAL_VARIABLE === true) {
-    doSomeOtherThing();
-  }
-};
-```
+<<< @/snippets/separate-if-statements.ts{1-11|13-25|all}
 
 <!--
 - Here is one I like to do
@@ -1001,38 +747,12 @@ const myFunction = (input: number) => {
 
 ---
 layout: center-code
-size: 3
+size: 2.5
 ---
 
 # Separate Final Return Statements
 
-```ts {1-10|12-24|all}
-const myFunction = (input: number) => {
-  if (input > 0) {
-    doThing();
-  }
-
-  if (SOME_GLOBAL_VARIABLE === true) {
-    doSomeOtherThing();
-  }
-  const output = input + 1;
-  return output;
-};
-
-const myFunction = (input: number) => {
-  if (input > 0) {
-    doThing();
-  }
-
-  if (SOME_GLOBAL_VARIABLE === true) {
-    doSomeOtherThing();
-  }
-
-  const output = input + 1;
-
-  return output;
-};
-```
+<<< @/snippets/separate-final-return-statements.ts{1-10|12-24|all}
 
 <!--
 - Here's a small one I like to do
@@ -1049,26 +769,7 @@ size: 3
 
 # Separate Test Cases
 
-```ts
-describe("All my cool functions", () => {
-  describe("myFunction", () => {
-    it("should return 1 when given an input of 0", () => {
-      // test stuff
-    });
-    it("should return 2 when given an input of 1", () => {
-      // test stuff
-    });
-  });
-  describe("myOtherFunction", () => {
-    it("should return -1 when given an input of 0", () => {
-      // test stuff
-    });
-    it("should return 0 when given an input of 1", () => {
-      // test stuff
-    });
-  });
-});
-```
+<<< @/snippets/separate-test-cases-bad.ts{all}
 
 <!--
 - This is a bit of a pet peeve of mine
@@ -1085,29 +786,7 @@ size: 3
 
 # Separate Test Cases
 
-```ts
-describe("All my cool functions", () => {
-  describe("myFunction", () => {
-    it("should return 1 when given an input of 0", () => {
-      // test stuff
-    });
-
-    it("should return 2 when given an input of 1", () => {
-      // test stuff
-    });
-  });
-
-  describe("myOtherFunction", () => {
-    it("should return -1 when given an input of 0", () => {
-      // test stuff
-    });
-
-    it("should return 0 when given an input of 1", () => {
-      // test stuff
-    });
-  });
-});
-```
+<<< @/snippets/separate-test-cases-good.ts{all}
 
 <!--
 - With just 3 new lines added between the it blocks and describe blocks, I think this is way more readable, and easier on the eyes
@@ -1145,15 +824,13 @@ layout: section
 -->
 
 ---
-layout: center
+layout: center-code
+size: 3
 ---
 
 # Code Formatters
 
-<div class="flex flex-col gap-4 place-content-center">
-  <img src="/before-prettier.png" />
-  <img src="/after-prettier.png" v-click/>
-</div>
+<<< @/snippets/code-formatters.ts{all}
 
 ---
 
@@ -1180,15 +857,12 @@ layout: center
 -->
 
 ---
-layout: center
+layout: center-code
 ---
 
 # Linters
 
-<div class="flex flex-col gap-4 place-content-center">
-  <img src="/before-eslint.png" />
-  <img src="/after-eslint.png" v-click/>
-</div>
+<<< @/snippets/linters.ts{all}
 
 ---
 layout: section
