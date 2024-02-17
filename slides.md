@@ -310,7 +310,7 @@ size: 3
 
 # Nested Control Structures
 
-<<< @/snippets/nested-control-structures-bad.ts{all}
+<<< @/snippets/nested-control-structures-bad.ts
 
 <!--
 - Just some example code
@@ -330,7 +330,7 @@ size: 4
 
 # Nested Control Structures
 
-<<< @/snippets/nested-control-structures-good.ts{all}
+<<< @/snippets/nested-control-structures-good.ts
 
 <!--
 - Destructuring assignments means we don't have to do datePicker.startDate or endDate
@@ -370,7 +370,7 @@ layout: center-code
 
 # Switch Statements
 
-<<< @/snippets/switch-statements-normal.ts{all}
+<<< @/snippets/switch-statements-normal.ts
 
 <!--
 - Here we're switch on different animals, and returning the sound they make
@@ -407,7 +407,7 @@ size: 4
 
 # Long if-else-if Chains
 
-<<< @/snippets/long-if-else-chains-bad.ts{all}
+<<< @/snippets/long-if-else-chains-bad.ts
 
 <!--
 - Here, we're adding to our input based on some conditions
@@ -425,7 +425,7 @@ size: 3
 
 # Long if-else-if Chains
 
-<<< @/snippets/long-if-else-chains-good.ts{all}
+<<< @/snippets/long-if-else-chains-good.ts
 
 <!--
 - By using early returns, we can make each case distinct, and clearly separate them with white space
@@ -549,7 +549,7 @@ layout: center-code
 
 # Comments - Non-obvious Information
 
-<<< @/snippets/comments-non-obvious-information.ts{all}
+<<< @/snippets/comments-non-obvious-information.ts
 
 <!--
 - Comment used to explain what the regex is trying to parse
@@ -769,7 +769,7 @@ size: 3
 
 # Separate Test Cases
 
-<<< @/snippets/separate-test-cases-bad.ts{all}
+<<< @/snippets/separate-test-cases-bad.ts
 
 <!--
 - This is a bit of a pet peeve of mine
@@ -786,7 +786,7 @@ size: 3
 
 # Separate Test Cases
 
-<<< @/snippets/separate-test-cases-good.ts{all}
+<<< @/snippets/separate-test-cases-good.ts
 
 <!--
 - With just 3 new lines added between the it blocks and describe blocks, I think this is way more readable, and easier on the eyes
@@ -830,7 +830,7 @@ size: 3
 
 # Code Formatters
 
-<<< @/snippets/code-formatters.ts{all}
+<<< @/snippets/code-formatters.ts
 
 ---
 
@@ -862,7 +862,7 @@ layout: center-code
 
 # Linters
 
-<<< @/snippets/linters.ts{all}
+<<< @/snippets/linters.ts
 
 ---
 layout: section
