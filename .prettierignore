@@ -1,4 +1,2 @@
 # I want to manually lay out some snippets so they don't use too many lines
 snippets/
-# Until the prettier plugin is ready https://github.com/slidevjs/slidev/issues/1261
-slides.md

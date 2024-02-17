@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@slidev/cli':
     specifier: ^0.47.4
-    version: 0.47.4(@types/markdown-it@12.2.3)(playwright-chromium@1.41.2)(postcss@8.4.21)
+    version: 0.47.4(@types/markdown-it@13.0.7)(playwright-chromium@1.41.2)(postcss@8.4.35)
   '@slidev/theme-default':
     specifier: '*'
     version: 0.21.2
@@ -16,6 +16,12 @@ devDependencies:
   playwright-chromium:
     specifier: ^1.41.2
     version: 1.41.2
+  prettier:
+    specifier: ^3.2.5
+    version: 3.2.5
+  prettier-plugin-slidev:
+    specifier: ^1.0.0
+    version: 1.0.0(prettier@3.2.5)
 
 packages:
 
@@ -984,7 +990,7 @@ packages:
     dev: false
     optional: true
 
-  /@slidev/cli@0.47.4(@types/markdown-it@12.2.3)(playwright-chromium@1.41.2)(postcss@8.4.21):
+  /@slidev/cli@0.47.4(@types/markdown-it@13.0.7)(playwright-chromium@1.41.2)(postcss@8.4.35):
     resolution: {integrity: sha512-e8DmN/ej9HdZHYJO23Merj3D01rk5S9x2G166VPMMVWQBsGDYptHtZTvkCzc1bR3y92wYAMmNitsLncYP/wauw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
@@ -1002,7 +1008,7 @@ packages:
       '@shikijs/markdown-it': 1.1.1
       '@shikijs/twoslash': 1.1.1(typescript@5.3.3)
       '@shikijs/vitepress-twoslash': 1.1.1(typescript@5.3.3)
-      '@slidev/client': 0.47.4(postcss@8.4.21)(typescript@5.3.3)(vite@5.1.1)
+      '@slidev/client': 0.47.4(postcss@8.4.35)(typescript@5.3.3)(vite@5.1.1)
       '@slidev/parser': 0.47.4
       '@slidev/types': 0.47.4
       '@unocss/extractor-mdc': 0.58.5
@@ -1029,7 +1035,7 @@ packages:
       markdown-it: 14.0.0
       markdown-it-footnote: 4.0.0
       markdown-it-link-attributes: 4.0.1
-      markdown-it-mdc: 0.2.2(@types/markdown-it@12.2.3)(markdown-it@14.0.0)
+      markdown-it-mdc: 0.2.2(@types/markdown-it@13.0.7)(markdown-it@14.0.0)
       mlly: 1.5.0
       monaco-editor: 0.37.1
       nanoid: 5.0.5
@@ -1037,7 +1043,7 @@ packages:
       pdf-lib: 1.17.1
       plantuml-encoder: 1.4.0
       playwright-chromium: 1.41.2
-      postcss-nested: 6.0.1(postcss@8.4.21)
+      postcss-nested: 6.0.1(postcss@8.4.35)
       prismjs: 1.29.0
       prompts: 2.4.2
       public-ip: 6.0.1
@@ -1047,7 +1053,7 @@ packages:
       shiki: 1.1.1
       sirv: 2.0.4
       typescript: 5.3.3
-      unocss: 0.58.5(postcss@8.4.21)(vite@5.1.1)
+      unocss: 0.58.5(postcss@8.4.35)(vite@5.1.1)
       unplugin-icons: 0.18.5
       unplugin-vue-components: 0.26.0(vue@3.4.18)
       unplugin-vue-markdown: 0.26.0(vite@5.1.1)
@@ -1083,7 +1089,7 @@ packages:
       - vue-template-es2015-compiler
     dev: false
 
-  /@slidev/client@0.47.4(postcss@8.4.21)(typescript@5.3.3)(vite@5.1.1):
+  /@slidev/client@0.47.4(postcss@8.4.35)(typescript@5.3.3)(vite@5.1.1):
     resolution: {integrity: sha512-4Z+cnwv+syLRbDzWRQfyQpuD/WCf4IdnfGfoa48V92xLVqyX85R0TSFaPI1OVcKFUjwwMfN5Ngl3iJk5nIyw2g==}
     engines: {node: '>=18.0.0'}
     dependencies:
@@ -1113,7 +1119,7 @@ packages:
       prettier: 3.2.5
       recordrtc: 5.6.2
       resolve: 1.22.8
-      unocss: 0.58.5(postcss@8.4.21)(vite@5.1.1)
+      unocss: 0.58.5(postcss@8.4.35)(vite@5.1.1)
       vue: 3.4.18(typescript@5.3.3)
       vue-router: 4.2.5(vue@3.4.18)
     transitivePeerDependencies:
@@ -1133,7 +1139,6 @@ packages:
     dependencies:
       '@slidev/types': 0.47.4
       js-yaml: 4.1.0
-    dev: false
 
   /@slidev/theme-default@0.21.2:
     resolution: {integrity: sha512-neUucFs2YrRZZd73QwvLTyRG/o1nerDFUR5t8YAmXVLTMzWfY71flQ6aAhjYf+WjsozYsOHcxi/pZtIzZ4VhTQ==}
@@ -1153,7 +1158,6 @@ packages:
   /@slidev/types@0.47.4:
     resolution: {integrity: sha512-V+kDQ2Uv/VWaPT0a6vd/XXb+ApH66hfGR3FF84EzOf3BoyT2o21kMUjHJPUXgDMimb+vxjZVMgGItH2oIu1FWw==}
     engines: {node: '>=18.0.0'}
-    dev: false
 
   /@szmarczak/http-timer@5.0.1:
     resolution: {integrity: sha512-+PmQX0PiAYPMeVYe237LJAYvOMYW1j2rH5YROyS3b4CTVJum34HfRvKvAzozHAQG0TnHNdUfY9nCeUyRAs//cw==}
@@ -1202,13 +1206,6 @@ packages:
 
   /@types/linkify-it@3.0.2:
     resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
-    dev: false
-
-  /@types/markdown-it@12.2.3:
-    resolution: {integrity: sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==}
-    dependencies:
-      '@types/linkify-it': 3.0.2
-      '@types/mdurl': 1.0.2
     dev: false
 
   /@types/markdown-it@13.0.7:
@@ -1363,7 +1360,7 @@ packages:
       sirv: 2.0.4
     dev: false
 
-  /@unocss/postcss@0.58.5(postcss@8.4.21):
+  /@unocss/postcss@0.58.5(postcss@8.4.35):
     resolution: {integrity: sha512-m4L2YRdYfT6CV306Kl2VwEwbqa/92EpW4GE2Kqak1RuJyFJXBnWEEMJV4Uy6B1jWKLlCEWkuVUW33JUg7X6BxQ==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -1375,7 +1372,7 @@ packages:
       css-tree: 2.3.1
       fast-glob: 3.3.2
       magic-string: 0.30.7
-      postcss: 8.4.21
+      postcss: 8.4.35
     dev: false
 
   /@unocss/preset-attributify@0.58.5:
@@ -1793,7 +1790,6 @@ packages:
 
   /argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
-    dev: false
 
   /asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
@@ -1942,7 +1938,7 @@ packages:
       normalize-path: 3.0.0
       readdirp: 3.6.0
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: false
 
   /chownr@2.0.0:
@@ -2883,14 +2879,6 @@ packages:
     dev: false
     optional: true
 
-  /fsevents@2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
-    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
-    os: [darwin]
-    requiresBuild: true
-    dev: false
-    optional: true
-
   /fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -3249,7 +3237,6 @@ packages:
     hasBin: true
     dependencies:
       argparse: 2.0.1
-    dev: false
 
   /jsesc@2.5.2:
     resolution: {integrity: sha512-OYu7XEzjkCQ3C5Ps3QIZsQfNpqoJyZZA99wd9aWd05NCtC5pWOkShK2mkL6HXQR6/Cy2lbNdPlZBpuQHXE63gA==}
@@ -3422,13 +3409,13 @@ packages:
     resolution: {integrity: sha512-pg5OK0jPLg62H4k7M9mRJLT61gUp9nvG0XveKYHMOOluASo9OEF13WlXrpAp2aj35LbedAy3QOCgQCw0tkLKAQ==}
     dev: false
 
-  /markdown-it-mdc@0.2.2(@types/markdown-it@12.2.3)(markdown-it@14.0.0):
+  /markdown-it-mdc@0.2.2(@types/markdown-it@13.0.7)(markdown-it@14.0.0):
     resolution: {integrity: sha512-80JZ1L6OsA+2uYnVvLW2sCoFx9htY07QSQJsb6PND8oqXrQk/LS4rRIrtY2MmuktNDXBDJr9os+B5dCFLZR6Zw==}
     peerDependencies:
       '@types/markdown-it': '*'
       markdown-it: ^14.0.0
     dependencies:
-      '@types/markdown-it': 12.2.3
+      '@types/markdown-it': 13.0.7
       js-yaml: 4.1.0
       markdown-it: 14.0.0
     dev: false
@@ -4120,12 +4107,6 @@ packages:
     resolution: {integrity: sha512-ckmWDJjphvd/FvZawgygcUeQCxzvohjFO5RxTjj4eq8kw359gFF3E1brjfI+viLMxss5JrHTDRHZvu2/tuy0Qg==}
     dev: false
 
-  /nanoid@3.3.4:
-    resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
-    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
-    hasBin: true
-    dev: false
-
   /nanoid@3.3.7:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -4358,13 +4339,13 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /postcss-nested@6.0.1(postcss@8.4.21):
+  /postcss-nested@6.0.1(postcss@8.4.35):
     resolution: {integrity: sha512-mEp4xPMi5bSWiMbsgoPfcP74lsWLHkQbZc3sY+jWYd65CUwXrUaTp0fmNpa01ZcETKlIgUdFN/MpS2xZtqL9dQ==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.2.14
     dependencies:
-      postcss: 8.4.21
+      postcss: 8.4.35
       postcss-selector-parser: 6.0.11
     dev: false
 
@@ -4376,15 +4357,6 @@ packages:
       util-deprecate: 1.0.2
     dev: false
 
-  /postcss@8.4.21:
-    resolution: {integrity: sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg==}
-    engines: {node: ^10 || ^12 || >=14}
-    dependencies:
-      nanoid: 3.3.4
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
-    dev: false
-
   /postcss@8.4.35:
     resolution: {integrity: sha512-u5U8qYpBCpN13BsiEB0CbR1Hhh4Gc0zLFuedrHJKMctHCHAGrMdG0PRM/KErzAL3CU6/eckEtmHNB3x6e3c0vA==}
     engines: {node: ^10 || ^12 || >=14}
@@ -4394,11 +4366,19 @@ packages:
       source-map-js: 1.0.2
     dev: false
 
+  /prettier-plugin-slidev@1.0.0(prettier@3.2.5):
+    resolution: {integrity: sha512-FCX3vWoVC0eYrCVFcNw6i9NjqqcxVv5sWF0Ta9D3uvE+FprbUsAXWghOoxa6Zqskxu9S7em4S2d9cqrvMnh/HQ==}
+    peerDependencies:
+      prettier: ^3.2.4
+    dependencies:
+      '@slidev/parser': 0.47.4
+      prettier: 3.2.5
+    dev: true
+
   /prettier@3.2.5:
     resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
     engines: {node: '>=14'}
     hasBin: true
-    dev: false
 
   /prism-theme-vars@0.2.4:
     resolution: {integrity: sha512-B3Pht+GCT87sZph7hMRLlCQXzCM0awW7Rhk08RavpqRW4LEQOeqN0uMG4QCWkul2tr8PB61YAOJGUrEW+1uuJA==}
@@ -4921,7 +4901,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: false
 
-  /unocss@0.58.5(postcss@8.4.21)(vite@5.1.1):
+  /unocss@0.58.5(postcss@8.4.35)(vite@5.1.1):
     resolution: {integrity: sha512-0g4P6jLgRRNnhscxw7nQ9RHGrKJ1UPPiHPet+YT3TXUcmy4mTiYgo9+kGQf5bjyrzsELJ10cT6Qz2y6g9Tls4g==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -4937,7 +4917,7 @@ packages:
       '@unocss/cli': 0.58.5
       '@unocss/core': 0.58.5
       '@unocss/extractor-arbitrary-variants': 0.58.5
-      '@unocss/postcss': 0.58.5(postcss@8.4.21)
+      '@unocss/postcss': 0.58.5(postcss@8.4.35)
       '@unocss/preset-attributify': 0.58.5
       '@unocss/preset-icons': 0.58.5
       '@unocss/preset-mini': 0.58.5

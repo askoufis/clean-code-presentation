@@ -56,7 +56,7 @@ implies the existence of dirty code". And, at least according to the book, dirty
 
 - Experimentation
 - Time pressure
-- The _Need for Speed_™️
+- The *Need for Speed*™️
 - Unfamiliarity with codebase/language
 - Neglect/Code rot
 
@@ -366,7 +366,7 @@ size: 4
 
 ---
 layout: center-code
---- 
+---
 
 # Switch Statements
 
@@ -382,7 +382,7 @@ layout: center-code
 ---
 layout: center-code
 size: 4
---- 
+---
 
 # Switch Statements
 
