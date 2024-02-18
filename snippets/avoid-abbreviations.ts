@@ -1,21 +1,21 @@
-type Addr = {
+interface Addr {
   num: number;
   name: string;
 };
 
-const addrStr = '123 Test St'; // User input
+const addrStrng = '123 Test St'; // User input
 
 const prsAddr = (a: string): Addr => {};
 
-const addr = prsAddr(addrStr);
+const addr = prsAddr(addrStrng);
 
-type Address = {
+interface Address {
   streetNumber: number;
   streetName: string;
 };
 
-const userAddressInput = '123 Test St'; // User input
+const addressInput = '123 Test St'; // User input
 
 const parseAddressFromInput = (input: string): Address => {};
 
-const parsedAddress = parseAddressFromInput(addressString);
+const parsedAddress = parseAddressFromInput(addressInput);

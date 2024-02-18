@@ -18,4 +18,5 @@ function doThing(input: string): string {
   return input;
 }
 
-function doMoreStuff(input: string): string {}
+let output = doThing("foobar");
+output = doMoreStuff(output);

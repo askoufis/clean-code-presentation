@@ -1,4 +1,4 @@
-const soundFromAnimal = {
+const soundFromAnimal: Record<string, string> = {
   Dog: "Woof",
   Cat: "Meow",
   Cow: "Moo",
@@ -11,4 +11,3 @@ const getAnimalSound = (animal: string): string =>
 
 const allAnimals = Object.keys(soundFromAnimal);
 const allSounds = [...Object.values(soundFromAnimal), defaultAnimalSound];
-
