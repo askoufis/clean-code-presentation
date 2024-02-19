@@ -498,7 +498,20 @@ layout: center-code
 
 # Git and GitHub
 
-- TODO: Write something here
+<v-clicks>
+
+- Commit early, commit often
+- Past PRs contain tons of context and learnings
+- Keep PRs focused and small if possible
+  - No rule that says you can only do 1 PR per Jira card/item of work
+- Review your own PR (even before you open it!)
+  - Helps catch silly mistakes/oversights
+  - Helps gauge whether or not your PR should be split up
+- Add comments to your own PRs (try and pre-empt your reviewer's questions)
+- GitHub search is super useful for finding examples/inspiration (both in SEEK repos and external
+  repos)
+
+</v-clicks>
 
 ---
 layout: section
@@ -512,12 +525,12 @@ layout: section
 
 <v-clicks>
 
-- KISS (Keep It Simple, Silly)
-- DRY (Don't Repeat Yourself)
-- WET (Write Everything Twice)
-- [AHA](https://kentcdodds.com/blog/aha-programming) (Avoid Hasty Abstractions)
-- Prefer duplication over the wrong abstraction
-- Optimize for change first
+- KISS (**K**eep **I**t **S**imple, **S**illy)
+- DRY (**D**on't **R**epeat **Y**ourself)
+- WET (**W**rite **E**verything **T**wice)
+- [AHA (**A**void **H**asty **A**bstractions)](https://kentcdodds.com/blog/aha-programming)
+- ["Prefer duplication over the wrong abstraction"](https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction)
+- ["Optimize for change"](https://overreacted.io/optimized-for-change/)
 
 </v-clicks>
 
