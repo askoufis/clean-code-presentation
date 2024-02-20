@@ -8,7 +8,7 @@ if (
     datePicker.startDate !== null &&
     datePicker.endDate !== null
   ) {
-    if (datePickerStart.SelectedDate === datePickerEnd.SelectedDate) {
+    if (datePickerStart.SelectedDate !== datePickerEnd.SelectedDate) {
       if (index1 === index2) {
         if (StartInt === EndInt) {
           if (radioButton.IsChecked === true) {

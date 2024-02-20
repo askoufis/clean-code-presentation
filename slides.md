@@ -77,7 +77,6 @@ How to be nice to your fellow engineers
 - Opinions and personal preference
 - Language-dependent
 - Context-dependent
-- <em>Consistency is key</em>
 
 </v-clicks>
 
@@ -101,14 +100,20 @@ layout: quote
 
 <v-clicks>
 
+- Bad names can slow you down
+- Good names (in combination with accurate types) can almost take away the need to actually read the code
 - A bit of effort goes a long way
+  - You can _always_ do better than single-letter variables like `x` or `i`
 - Meaningful
 - Pronounceable
-- Leverage your IDE's autocomplete for longer names, we don't use punchcards like in the 60s
+- Long-ish names are OK
+  - Leverage your IDE's autocomplete for longer names, we don't use punchcards like in the 59s
 
 </v-clicks>
 
-<figure class="w-65% ma mt-4">
+---
+
+<figure class="ma">
     <img v-after src="/punchcard.jpg" alt="Punch card from a typical Fortran program" />
     <figcaption class="text-end">
         <a class="font-size-3" href="https://en.wikipedia.org/w/index.php?title=Punched_card&oldid=1208459995">Wikipedia - Punched card</a>
@@ -122,7 +127,11 @@ size: 3
 
 # Avoid Abbreviations
 
+<v-click>
+
 <<< @/snippets/avoid-abbreviations.ts{1-10|12-21|all}
+
+</v-click>
 
 ---
 layout: center-code
@@ -130,7 +139,11 @@ layout: center-code
 
 # Use Names to Add Meaning
 
+<v-click>
+
 <<< @/snippets/use-names-to-add-meaning.ts{1-3|5-11|all}
+
+</v-click>
 
 ---
 
@@ -138,8 +151,9 @@ layout: center-code
 
 <v-clicks>
 
-- Small
-- Do one thing
+- Ideally small
+- Minimal responsibility
+  - Ideally does one thing, and does it well
 - Named based on what it does
 
 </v-clicks>
@@ -150,6 +164,7 @@ layout: center-code
 
 - Easier to test
 - Easier to understand how they work
+- Easier to compose together
 - Easier to change
 - Easier to detect a bloated function
 - A well-named function can often replace a comment
@@ -163,16 +178,24 @@ size: 3
 
 # Nested Control Structures
 
-<<< @/snippets/nested-control-structures-bad.ts
+<v-click>
+
+<<< @/snippets/nested-control-structures-bad.ts{1-5|6-10|11-21|all}
+
+</v-click>
 
 ---
 layout: center-code
-size: 4
+size: 3
 ---
 
 # Nested Control Structures
 
-<<< @/snippets/nested-control-structures-good.ts
+<v-click>
+
+<<< @/snippets/nested-control-structures-good.ts{1|3-8|10-15|17-20|22|all}
+
+</v-click>
 
 ---
 
@@ -182,6 +205,7 @@ size: 4
 
 - Avoid overly-nested control structures (i.e. less indentation is better)
 - Destructure values that are used more than once
+- Split out and name conditional logic
 - Use early `return`s to handle branches
 
 </v-clicks>
@@ -192,7 +216,11 @@ layout: center-code
 
 # Switch Statements
 
+<v-click>
+
 <<< @/snippets/switch-statements-normal.ts
+
+</v-click>
 
 ---
 layout: center-code
@@ -201,7 +229,11 @@ size: 4
 
 # Switch Statements
 
+<v-click>
+
 <<< @/snippets/switch-statements-alternative.ts{1-11|all}
+
+</v-click>
 
 ---
 
@@ -216,11 +248,11 @@ size: 4
 
 </v-clicks>
 
-<h2 v-click>Data-driven mapping</h2>
+<h2 v-click>Data-driven Mapping</h2>
 
 <v-clicks>
 
-- Data is not coupled mapping function
+- Data is not coupled to mapping function
 - Types are not coupled to mapping function
 - Easier to add/remove/change a mapping
 
@@ -233,7 +265,11 @@ size: 3
 
 # Long if-else-if Chains
 
+<v-click>
+
 <<< @/snippets/long-if-else-chains-bad.ts
+
+</v-click>
 
 ---
 layout: center-code
@@ -242,7 +278,11 @@ size: 3
 
 # Long if-else-if Chains
 
+<v-click>
+
 <<< @/snippets/long-if-else-chains-good.ts
+
+</v-click>
 
 ---
 layout: center-code
@@ -250,7 +290,11 @@ layout: center-code
 
 # Too Many Function Parameters
 
+<v-click>
+
 <<< @/snippets/too-many-function-parameters.ts{1|1-3|1-5}
+
+</v-click>
 
 ---
 
@@ -271,7 +315,11 @@ layout: center-code
 
 # Options Object Parameter
 
+<v-click>
+
 <<< @/snippets/options-object-parameter.ts{1|3-8|all}
+
+</v-click>
 
 ---
 layout: section
@@ -304,7 +352,11 @@ layout: center-code
 
 # Comments - Explain With Code
 
+<v-click>
+
 <<< @/snippets/comments-explain-with-code.ts{1-3|6-8|all}
+
+</v-click>
 
 ---
 layout: center-code
@@ -312,7 +364,11 @@ layout: center-code
 
 # Comments - Non-obvious Information
 
+<v-click>
+
 <<< @/snippets/comments-non-obvious-information.ts
+
+</v-click>
 
 ---
 layout: center-code
@@ -320,21 +376,37 @@ layout: center-code
 
 # Comments - TODOs and Context
 
+<v-click>
+
 <<< @/snippets/comments-todos-and-context.ts{1|3-7|8-9|all}
+
+</v-click>
 
 ---
 
-# Reason to Leave a Comment
+# Reasons to Leave a Comment
 
 <v-clicks>
 
 - Unexpected/non-standard implementation/decision
 - Reasoning for one approach over another
-- Something is hard to understand and can't be simplified (regex)
+- Something is hard to understand at a glance and can't be simplified (regex)
 - Link to a formal specification that you're adhering to
 - Link to github issue for a bug/workaround
 
 </v-clicks>
+
+---
+layout: center-code
+---
+
+# Commented Code
+
+<v-click>
+
+<<< @/snippets/commented-code.ts
+
+</v-click>
 
 ---
 
@@ -345,6 +417,7 @@ layout: center-code
 - Fine temporarily, just don't commit it
 - Bloats files
 - If it's committed, just delete it, it can be recovered (that's the point of version control)
+- If it's _not_ committed and you're worried about losing it, commit it and then delete it
 
 </v-clicks>
 
@@ -375,7 +448,11 @@ layout: center-code
 
 # Proximity Implies Association
 
+<v-click>
+
 <<< @/snippets/proximity-implies-association.ts{1-5|7-8|all}
+
+</v-click>
 
 ---
 
@@ -396,7 +473,11 @@ size: 3
 
 # Separate Groups of Related Code
 
+<v-click>
+
 <<< @/snippets/separate-groups-of-related-code.ts{1-10|12-23|all}
+
+</v-click>
 
 ---
 layout: center-code
@@ -405,7 +486,11 @@ size: 3
 
 # Separate Top-Level Stuff
 
+<v-click>
+
 <<< @/snippets/separate-top-level-stuff.ts{1-8|10-19|all}
+
+</v-click>
 
 ---
 layout: center-code
@@ -414,7 +499,11 @@ size: 2.5
 
 # Separate If Statements
 
+<v-click>
+
 <<< @/snippets/separate-if-statements.ts{1-11|13-25|all}
+
+</v-click>
 
 ---
 layout: center-code
@@ -423,7 +512,11 @@ size: 2.5
 
 # Separate Final Return Statements
 
+<v-click>
+
 <<< @/snippets/separate-final-return-statements.ts{1-10|12-24|all}
+
+</v-click>
 
 ---
 layout: center-code
@@ -431,9 +524,13 @@ size: 3
 ---
 
 # Separate Test Cases
+
+<v-click>
 
 <<< @/snippets/separate-test-cases-bad.ts
 
+</v-click>
+
 ---
 layout: center-code
 size: 3
@@ -441,7 +538,11 @@ size: 3
 
 # Separate Test Cases
 
+<v-click>
+
 <<< @/snippets/separate-test-cases-good.ts
+
+</v-click>
 
 ---
 layout: section
@@ -458,7 +559,7 @@ layout: section
 - Formats your code according to specific rules
 - Enforce consistent style
 - Consistency trumps personal preference
-- In the JavaScript/TypeScript ecosystem [Prettier](https://prettier.io/) is the commonly use code formatter
+- In the JavaScript/TypeScript ecosystem [Prettier](https://prettier.io/) is the commonly used code formatter
 
 </v-clicks>
 
@@ -469,7 +570,11 @@ size: 3
 
 # Code Formatters
 
+<v-click>
+
 <<< @/snippets/code-formatters.ts
+
+</v-click>
 
 ---
 
@@ -492,7 +597,11 @@ layout: center-code
 
 # Linters
 
+<v-click>
+
 <<< @/snippets/linters.ts
+
+</v-click>
 
 ---
 
@@ -503,10 +612,11 @@ layout: center-code
 - Commit early, commit often
 - Past PRs contain tons of context and learnings
 - Keep PRs focused and small if possible
+  - Split up large changes into smaller PRs
   - No rule that says you can only do 1 PR per Jira card/item of work
 - Review your own PR (even before you open it!)
   - Helps catch silly mistakes/oversights
-  - Helps gauge whether or not your PR should be split up
+  - Helps gauge whether or not your changes should be split up into multiple PRs
 - Add comments to your own PRs (try and pre-empt your reviewer's questions)
 - GitHub search is super useful for finding examples/inspiration (both in SEEK repos and external
   repos)
