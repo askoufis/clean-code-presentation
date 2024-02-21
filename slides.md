@@ -186,7 +186,7 @@ size: 3
 
 ---
 layout: center-code
-size: 3
+size: 2.5
 ---
 
 # Nested Control Structures
