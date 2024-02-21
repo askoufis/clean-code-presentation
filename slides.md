@@ -107,7 +107,7 @@ layout: quote
 - Meaningful
 - Pronounceable
 - Long-ish names are OK
-  - Leverage your IDE's autocomplete for longer names, we don't use punchcards like in the 59s
+  - Leverage your IDE's autocomplete for longer names, we don't use punchcards like in the 60s
 
 </v-clicks>
 
