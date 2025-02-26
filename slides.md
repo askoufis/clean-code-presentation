@@ -127,11 +127,7 @@ size: 3
 
 # Avoid Abbreviations
 
-<v-click>
-
-<<< @/snippets/avoid-abbreviations.ts{1-10|12-21|all}
-
-</v-click>
+<<< @/snippets/avoid-abbreviations.ts {hide|1-10|12-21|all}
 
 ---
 layout: center-code
@@ -139,11 +135,7 @@ layout: center-code
 
 # Use Names to Add Meaning
 
-<v-click>
-
-<<< @/snippets/use-names-to-add-meaning.ts{1-3|5-11|all}
-
-</v-click>
+<<< @/snippets/use-names-to-add-meaning.ts {hide|1-3|5-11|all}
 
 ---
 
@@ -178,11 +170,7 @@ size: 3
 
 # Nested Control Structures
 
-<v-click>
-
-<<< @/snippets/nested-control-structures-bad.ts{1-5|6-10|11-21|all}
-
-</v-click>
+<<< @/snippets/nested-control-structures-bad.ts {hide|1-5|6-10|11-21|all}
 
 ---
 layout: center-code
@@ -191,11 +179,7 @@ size: 2.5
 
 # Nested Control Structures
 
-<v-click>
-
-<<< @/snippets/nested-control-structures-good.ts{1|3-8|10-15|17-20|22|all}
-
-</v-click>
+<<< @/snippets/nested-control-structures-good.ts {hide|1|3-8|10-15|17-20|22|all}
 
 ---
 
@@ -216,11 +200,7 @@ layout: center-code
 
 # Switch Statements
 
-<v-click>
-
-<<< @/snippets/switch-statements-normal.ts
-
-</v-click>
+<<< @/snippets/switch-statements-normal.ts {hide|all}
 
 ---
 layout: center-code
@@ -229,11 +209,7 @@ size: 4
 
 # Switch Statements
 
-<v-click>
-
-<<< @/snippets/switch-statements-alternative.ts{1-11|all}
-
-</v-click>
+<<< @/snippets/switch-statements-alternative.ts {hide|1-5|7|1-11|all}
 
 ---
 
@@ -265,11 +241,7 @@ size: 3
 
 # Long if-else-if Chains
 
-<v-click>
-
-<<< @/snippets/long-if-else-chains-bad.ts
-
-</v-click>
+<<< @/snippets/long-if-else-chains-bad.ts {hide|all}
 
 ---
 layout: center-code
@@ -278,11 +250,7 @@ size: 3
 
 # Long if-else-if Chains
 
-<v-click>
-
-<<< @/snippets/long-if-else-chains-good.ts
-
-</v-click>
+<<< @/snippets/long-if-else-chains-good.ts {hide|all}
 
 ---
 layout: center-code
@@ -290,11 +258,7 @@ layout: center-code
 
 # Too Many Function Parameters
 
-<v-click>
-
-<<< @/snippets/too-many-function-parameters.ts{1|1-3|1-5}
-
-</v-click>
+<<< @/snippets/too-many-function-parameters.ts {hide|1|1-3|1-5}
 
 ---
 
@@ -315,11 +279,7 @@ layout: center-code
 
 # Options Object Parameter
 
-<v-click>
-
-<<< @/snippets/options-object-parameter.ts{1|3-8|all}
-
-</v-click>
+<<< @/snippets/options-object-parameter.ts {hide|1|3-8|all}
 
 ---
 layout: section
@@ -352,11 +312,7 @@ layout: center-code
 
 # Comments - Explain With Code
 
-<v-click>
-
-<<< @/snippets/comments-explain-with-code.ts{1-3|6-8|all}
-
-</v-click>
+<<< @/snippets/comments-explain-with-code.ts {hide|1-3|6-8|all}
 
 ---
 layout: center-code
@@ -364,11 +320,7 @@ layout: center-code
 
 # Comments - Non-obvious Information
 
-<v-click>
-
-<<< @/snippets/comments-non-obvious-information.ts
-
-</v-click>
+<<< @/snippets/comments-non-obvious-information.ts {hide|all}
 
 ---
 layout: center-code
@@ -376,11 +328,7 @@ layout: center-code
 
 # Comments - TODOs and Context
 
-<v-click>
-
-<<< @/snippets/comments-todos-and-context.ts{1|3-7|8-9|all}
-
-</v-click>
+<<< @/snippets/comments-todos-and-context.ts {hide|1|3-7|8-9|all}
 
 ---
 
@@ -402,11 +350,7 @@ layout: center-code
 
 # Commented Code
 
-<v-click>
-
-<<< @/snippets/commented-code.ts
-
-</v-click>
+<<< @/snippets/commented-code.ts {hide|all}
 
 ---
 
@@ -448,11 +392,7 @@ layout: center-code
 
 # Proximity Implies Association
 
-<v-click>
-
-<<< @/snippets/proximity-implies-association.ts{1-5|7-8|all}
-
-</v-click>
+<<< @/snippets/proximity-implies-association.ts {hide|1-5|7-8|all}
 
 ---
 
@@ -473,11 +413,7 @@ size: 3
 
 # Separate Groups of Related Code
 
-<v-click>
-
-<<< @/snippets/separate-groups-of-related-code.ts{1-10|12-23|all}
-
-</v-click>
+<<< @/snippets/separate-groups-of-related-code.ts {hide|1-10|12-23|all}
 
 ---
 layout: center-code
@@ -486,11 +422,7 @@ size: 3
 
 # Separate Top-Level Stuff
 
-<v-click>
-
-<<< @/snippets/separate-top-level-stuff.ts{1-8|10-19|all}
-
-</v-click>
+<<< @/snippets/separate-top-level-stuff.ts {hide|1-8|10-19|all}
 
 ---
 layout: center-code
@@ -499,11 +431,7 @@ size: 2.5
 
 # Separate If Statements
 
-<v-click>
-
-<<< @/snippets/separate-if-statements.ts{1-11|13-25|all}
-
-</v-click>
+<<< @/snippets/separate-if-statements.ts {hide|1-11|13-25|all}
 
 ---
 layout: center-code
@@ -512,11 +440,7 @@ size: 2.5
 
 # Separate Final Return Statements
 
-<v-click>
-
-<<< @/snippets/separate-final-return-statements.ts{1-10|12-24|all}
-
-</v-click>
+<<< @/snippets/separate-final-return-statements.ts {hide|1-10|12-24|all}
 
 ---
 layout: center-code
@@ -525,11 +449,7 @@ size: 3
 
 # Separate Test Cases
 
-<v-click>
-
-<<< @/snippets/separate-test-cases-bad.ts
-
-</v-click>
+<<< @/snippets/separate-test-cases-bad.ts {hide|all}
 
 ---
 layout: center-code
@@ -538,11 +458,7 @@ size: 3
 
 # Separate Test Cases
 
-<v-click>
-
-<<< @/snippets/separate-test-cases-good.ts
-
-</v-click>
+<<< @/snippets/separate-test-cases-good.ts {hide|all}
 
 ---
 layout: section
@@ -570,11 +486,7 @@ size: 3
 
 # Code Formatters
 
-<v-click>
-
-<<< @/snippets/code-formatters.ts
-
-</v-click>
+<<< @/snippets/code-formatters.ts {hide|all}
 
 ---
 
@@ -597,11 +509,7 @@ layout: center-code
 
 # Linters
 
-<v-click>
-
-<<< @/snippets/linters.ts
-
-</v-click>
+<<< @/snippets/linters.ts {hide|all}
 
 ---
 
