@@ -1,8 +1,8 @@
-const thing = getThingFromSomewhere();
+const thing = getThing();
 
 // ... 20 lines later ...
 
-doSomethingWith(thing);
+do(thing);
 
-const thing = getThingFromSomewhere();
-doSomethingWith(thing);
+const thing = getThing();
+do(thing);

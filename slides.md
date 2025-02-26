@@ -98,7 +98,7 @@ layout: quote
 
 # Naming
 
-<v-clicks>
+<v-clicks depth="2">
 
 - Bad names can slow you down
 - Good names (in combination with accurate types) can almost take away the need to actually read the code
@@ -141,7 +141,7 @@ layout: center-code
 
 # Functions
 
-<v-clicks>
+<v-clicks depth="2">
 
 - Ideally small
 - Minimal responsibility
@@ -264,12 +264,13 @@ layout: center-code
 
 # Too Many Function Parameters
 
-<v-clicks>
+<v-clicks depth="2">
 
 - Function is doing more than one thing
 - Harder to interpret at a glance
 - Readers more likely to ignore long lists
 - Types can help, but don't fix the problem
+  - E.g. two `boolean` parameters in a row
 
 </v-clicks>
 
@@ -285,7 +286,7 @@ layout: center-code
 layout: section
 ---
 
-# Exercise + Break
+# Break Time + Exercise
 
 ---
 layout: section
@@ -494,7 +495,7 @@ size: 3
 
 <v-clicks>
 
-- Warns/errors on specific code patterns
+- Reports warnings and errors on specific code patterns
 - Enforce certain syntax patterns
 - [ESLint](https://eslint.org/) common in the JavaScript/TypeScript ecosystem
 - Identify code smells
@@ -515,13 +516,14 @@ layout: center-code
 
 # Git and GitHub
 
-<v-clicks>
+<v-clicks depth="2">
 
 - Commit early, commit often
 - Past PRs contain tons of context and learnings
 - Keep PRs focused and small if possible
   - Split up large changes into smaller PRs
-  - No rule that says you can only do 1 PR per Jira card/item of work
+  - No rule that says you have to do 1 PR per Jira card/item of work
+  - [Insert anecdote here]
 - Review your own PR (even before you open it!)
   - Helps catch silly mistakes/oversights
   - Helps gauge whether or not your changes should be split up into multiple PRs
@@ -573,3 +575,9 @@ layout: center
 # [Writing Maintainable Code is a Communication Skill]
 
 [Writing Maintainable Code is a Communication Skill]: https://max.engineer/maintainable-code
+
+---
+layout: center
+---
+
+# Thank you
