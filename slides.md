@@ -133,9 +133,26 @@ size: 3
 layout: center-code
 ---
 
+# Avoid Types in Names
+
+<<< @/snippets/avoid-types-in-names.ts {hide|1-2|4-5|all}
+
+---
+layout: center-code
+---
+
 # Use Names to Add Meaning
 
 <<< @/snippets/use-names-to-add-meaning.ts {hide|1-3|5-11|all}
+
+---
+layout: center-code
+size: 4
+---
+
+# Include Units in Names
+
+<<< @/snippets/include-units-in-names.ts {hide|1-2|4|6-14|all}
 
 ---
 
