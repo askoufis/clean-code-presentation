@@ -8,7 +8,8 @@ export default defineShikiSetup(() => {
     },
     langs: [
       'js',
-      'typescript'
+      'typescript',
+      'sh',
     ]
   };
 });

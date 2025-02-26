@@ -303,7 +303,21 @@ layout: center-code
 layout: section
 ---
 
-# Break Time + Exercise
+# Break Time!
+
+---
+layout: center-code
+---
+
+# [Clean Code Exercise](https://github.com/askoufis/clean-code-exercise)
+
+```sh
+git clone git@github.com:askoufis/clean-code-exercise.git \
+ && cd clean-code-exercise \
+ && pnpm install \
+ && pnpm lint \
+ && pnpm test
+```
 
 ---
 layout: section
