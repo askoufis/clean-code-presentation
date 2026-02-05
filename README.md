@@ -1,4 +1,4 @@
-# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
+# Clean Code Presentation
 
 To start the slide show:
 
@@ -9,4 +9,3 @@ To start the slide show:
 Edit [slides.md](./slides.md) to see changes.
 
 Learn more about Slidev from [the docs](https://sli.dev/).
-
