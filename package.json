@@ -19,12 +19,5 @@
     "prettier": "^3.8.1",
     "prettier-plugin-slidev": "^1.0.5",
     "serve": "^14.2.5"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "playwright-chromium",
-      "vue-demi"
-    ]
   }
 }
