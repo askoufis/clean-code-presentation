@@ -8,17 +8,17 @@
     "present": "pnpm build && serve dist"
   },
   "dependencies": {
-    "@slidev/cli": "^51.3.0",
+    "@slidev/cli": "^52.11.5",
     "@slidev/theme-default": "*",
-    "vue": "^3.5.13"
+    "vue": "^3.5.27"
   },
   "packageManager": "pnpm@10.5.0",
   "devDependencies": {
-    "@slidev/types": "^51.3.0",
-    "playwright-chromium": "^1.50.1",
-    "prettier": "^3.5.2",
+    "@slidev/types": "^52.11.5",
+    "playwright-chromium": "^1.58.1",
+    "prettier": "^3.8.1",
     "prettier-plugin-slidev": "^1.0.5",
-    "serve": "^14.2.4"
+    "serve": "^14.2.5"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
